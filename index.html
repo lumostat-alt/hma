@@ -1,398 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>h.m.a Handicrafts — Timeless Craft. Modern Living.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
+    body {
+      background-color: #F5F5F7;
+      min-height: 100vh;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    :root{
+      --ivory:#FAFAFA;
+      --cream:#FFFFFF;
+      --sand:#F5F5F7;
+      --sand-deep:#EAEAEA;
+      --taupe:#D9D9D9;
+      --clay:#4A4A4A;
+      --bronze:#000000;
+      --gold:#1F1F1F;
+      --gold-soft:#EAEAEA;
+      --charcoal:#1F1F1F;
+      --graphite:#4A4A4A;
+      --ink:#000000;
+
+      --glass-blur:14px;
+      --glass-sat:140%;
+      --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+      --glass-border:1px solid rgba(255,255,255,0.7);
+      --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+      --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+      --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+
+      --shadow-md:var(--shadow-soft);
+      --shadow-lg:var(--shadow-lift);
+
+      --r-pill:100px;
+    }
+
+    header{
+      position:sticky;
+      top:16px;
+      z-index:100;
+      padding:0;
+    }
+    header .header-inner{position:relative;z-index:2;}
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:14px 30px;
+      background:var(--glass-bg);
+      backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+      -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+      border:var(--glass-border);
+      border-radius:var(--r-pill);
+      box-shadow:var(--shadow-soft), var(--glass-highlight);
+      transition:box-shadow .3s ease;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    header.is-scrolled .header-inner{box-shadow:var(--shadow-lift), var(--glass-highlight);}
+
+    .logo{display:flex;align-items:center;flex-shrink:0;}
+    .logo img{height:40px;width:auto;}
+
+    nav.main-nav{display:flex;align-items:center;gap:26px;flex-shrink:0;}
+    nav.main-nav a{
+      font-size:12.5px;
+      font-weight:500;
+      letter-spacing:0.05em;
+      color:var(--graphite);
+      white-space:nowrap;
+      position:relative;
+      padding-bottom:6px;
+      transition:color .3s ease;
+    }
+    nav.main-nav a:hover{color:var(--bronze);}
+    nav.main-nav a.active{color:var(--bronze);}
+    nav.main-nav a.active::after{
+      content:"";position:absolute;left:50%;bottom:-2px;width:4px;height:4px;
+      border-radius:50%;background:var(--gold);transform:translateX(-50%);
+    }
+
+    .header-actions{display:flex;align-items:center;gap:18px;flex-shrink:0;}
+    .icon-btn{display:flex;align-items:center;justify-content:center;width:22px;height:22px;color:var(--ink);position:relative;transition:opacity .25s ease;background:none;border:none;cursor:pointer;}
+    .icon-btn:hover{opacity:0.6;}
+    .icon-btn svg{width:20px;height:20px;}
+
+    .cart-wrap{position:relative;}
+    .cart-badge{
+      position:absolute;top:-9px;right:-10px;background:var(--bronze);color:#fff;
+      font-size:10px;font-weight:500;width:16px;height:16px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;line-height:1;
+    }
+
+    .cta-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:linear-gradient(160deg, #2A2A2A, #000000);
+      color:var(--cream);
+      padding:13px 26px;
+      border-radius:var(--r-pill);
+      font-size:13px;
+      font-weight:500;
+      letter-spacing:0.03em;
+      box-shadow:var(--shadow-md);
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .cta-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+    .cta-btn svg{width:16px;height:16px;}
+
+    .menu-toggle{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      width:22px;
+      height:22px;
+      background:none;
+      border:none;
+      cursor:pointer;
+      color:var(--ink);
+      flex-shrink:0;
+    }
+    .menu-toggle svg{width:22px;height:22px;}
+    .menu-toggle .icon-close{display:none;}
+    header.is-open .menu-toggle .icon-open{display:none;}
+    header.is-open .menu-toggle .icon-close{display:block;}
+
+    .mobile-nav{
+      display:none;
+      flex-direction:column;
+      gap:4px;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      margin:10px auto 0;
+      padding:10px 16px;
+      background:var(--glass-bg);
+      backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+      -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+      border:var(--glass-border);
+      border-radius:24px;
+      box-shadow:var(--shadow-soft), var(--glass-highlight);
+      opacity:0;
+      transform:translateY(-8px);
+      transition:opacity .25s ease, transform .25s ease;
+      z-index:1;
+    }
+    .mobile-nav a{
+      font-size:13.5px;
+      font-weight:500;
+      letter-spacing:0.03em;
+      color:var(--graphite);
+      padding:12px 6px;
+      border-bottom:1px solid rgba(0,0,0,0.06);
+    }
+    .mobile-nav a:last-of-type{border-bottom:none;}
+    .mobile-nav a.active{color:var(--bronze);}
+    .mobile-nav .cta-btn{
+      justify-content:center;
+      margin-top:8px;
+    }
+
+    header.is-open .mobile-nav{
+      display:flex;
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width: 900px){
+      nav.main-nav{display:none;}
+      .header-inner{padding:12px 20px;}
+      .menu-toggle{display:flex;}
+    }
+  </style>
+  <style>
+:root{
+  --ivory:#FAFAFA;
+  --cream:#FFFFFF;
+  --sand:#F5F5F7;
+  --sand-deep:#EAEAEA;
+  --clay:#4A4A4A;
+  --bronze:#000000;
+  --gold:#1F1F1F;
+  --charcoal:#1F1F1F;
+  --graphite:#4A4A4A;
+  --ink:#000000;
+
+  --glass-blur:14px;
+  --glass-sat:140%;
+  --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+  --glass-border:1px solid rgba(255,255,255,0.7);
+  --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+  --shadow-md:var(--shadow-soft);
+  --shadow-lg:var(--shadow-lift);
+
+  --line:var(--sand-deep);
+  --card:var(--cream);
+  --ink-soft:var(--graphite);
+  --r-pill:100px;
+  --r-hero:60px;
+  --r-card:34px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+body{font-family:'Inter', sans-serif;background:var(--ivory);}
+
+.glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border:var(--glass-border);
+  box-shadow:var(--shadow-soft), var(--glass-highlight);
+  position:relative;
+}
+.glass:hover{box-shadow:var(--shadow-lift), var(--glass-highlight);}
+
+.hero-section{position:relative;padding:70px 40px 60px;}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:64px;
+  align-items:center;
+  max-width:1500px;
+  margin:0 auto;
+}
+
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 18px;
+  border-radius:var(--r-pill);
+  border:1px solid var(--line);
+  background:var(--card);
+  font-size:11px;font-weight:600;letter-spacing:0.14em;
+  color:var(--clay);
+  margin-bottom:26px;
+}
+.badge svg{width:13px;height:13px;color:var(--gold);}
+
+.hero-left h1{
+  font-family:'Georgia', serif;
+  font-weight:500;
+  letter-spacing:0.01em;
+  color:var(--ink);
+  font-size:clamp(44px,5.2vw,68px);
+  line-height:1.05;
+  margin-bottom:22px;
+}
+.hero-left .lead{
+  font-size:17px;line-height:1.7;color:var(--ink-soft);max-width:460px;margin-bottom:34px;
+}
+
+.hero-ctas{display:flex;align-items:center;gap:16px;margin-bottom:44px;}
+
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(160deg, #2A2A2A, #000000);
+  color:var(--cream);
+  padding:13px 26px;
+  border-radius:var(--r-pill);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.03em;
+  box-shadow:var(--shadow-md);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.cta-btn svg{width:16px;height:16px;}
+
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;
+  border-radius:var(--r-pill);
+  border:1px solid var(--line);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.03em;
+  color:var(--charcoal);
+  transition:border-color .3s ease, background .3s ease;
+}
+.btn-outline:hover{border-color:var(--bronze);background:var(--sand);}
+.btn-outline svg{width:14px;height:14px;}
+
+.hero-trust{display:flex;align-items:center;gap:16px;}
+.avatar-stack{display:flex;}
+.avatar-stack img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:3px solid var(--ivory);margin-left:-12px;}
+.avatar-stack img:first-child{margin-left:0;}
+.trust-text .trust-line1{font-size:13px;font-weight:500;color:var(--charcoal);}
+.trust-text .trust-rating{font-size:13px;color:var(--ink-soft);}
+.trust-text .stars{color:var(--gold);letter-spacing:1px;}
+
+.hero-right{position:relative;border-radius:var(--r-hero);overflow:visible;}
+.hero-right img{border-radius:var(--r-hero);width:100%;height:520px;object-fit:cover;box-shadow:var(--shadow-lg);}
+
+.hero-float-card{
+  position:absolute;bottom:-30px;left:-40px;
+  width:240px;padding:22px;
+  border-radius:var(--r-card);
+}
+.hero-float-avatars{display:flex;margin-bottom:12px;}
+.hero-float-avatars img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-10px;}
+.hero-float-avatars img:first-child{margin-left:0;}
+.hero-float-card h4{
+  font-family:'Georgia', serif;
+  font-weight:500;
+  color:var(--ink);
+  font-size:17px;margin-bottom:4px;
+}
+.hero-float-card p{font-size:12.5px;line-height:1.5;color:var(--ink-soft);}
+
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:48px;}
+  .hero-right{order:-1;}
+  .hero-float-card{left:20px;}
+}
+</style>
+</style>
 <style>
 :root{
-    /* ===== h.m.a Brand Guide — tokens copied 1:1 from hma-brandguide.html ===== */
-    --ivory:#FAFAFA;
-    --cream:#FFFFFF;
-    --sand:#F5F5F7;
-    --sand-deep:#EAEAEA;
-    --taupe:#D9D9D9;
-    --clay:#4A4A4A;
-    --bronze:#000000;
-    --gold:#1F1F1F;
-    --gold-soft:#EAEAEA;
-    --charcoal:#1F1F1F;
-    --graphite:#4A4A4A;
-    --ink:#000000;
-
-    --glass-blur:14px;
-    --glass-sat:140%;
-    --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
-    --glass-border:1px solid rgba(255,255,255,0.7);
-    --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
-    --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
-    --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
-
-    /* mapped aliases so existing markup keeps working */
-    --bg:var(--ivory);
-    --card:var(--cream);
-    --ink-soft:var(--graphite);
-    --line:var(--sand-deep);
-    --line-soft:#F1EFEA;
-    --black:var(--ink);
-    --shadow-sm:0 2px 10px rgba(20,18,14,0.05);
-    --shadow-md:var(--shadow-soft);
-    --shadow-lg:var(--shadow-lift);
-
-    /* radius vocabulary — the exact set used across the brand guide's components */
-    --r-pill:100px;
-    --r-tile:30px;      /* logo-tile / thumbnails */
-    --r-card:34px;      /* rule-card / scale-card / voice-side card */
-    --r-app:38px;       /* app-card */
-    --r-hero:60px;      /* logo-hero */
-    --r-asym-a:42px 90px 42px 90px;   /* story-card */
-    --r-asym-b:90px 42px 90px 42px;   /* story-quote */
-    --r-asym-v:44px 90px 44px 90px;   /* voice-main */
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-
-  html{scroll-behavior:smooth;}
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
-  }
-
-  body{
-    font-family:'Inter', sans-serif;
-    font-weight:400;
-    background:
-      radial-gradient(ellipse 1200px 800px at 15% -5%, #FFFFFF 0%, transparent 55%),
-      radial-gradient(ellipse 1000px 900px at 100% 20%, #F2F2F4 0%, transparent 50%),
-      radial-gradient(ellipse 1200px 900px at 0% 80%, #EDEDED 0%, transparent 55%),
-      linear-gradient(180deg, var(--ivory) 0%, #F0F0F0 50%, var(--ivory) 100%);
-    background-attachment:scroll;
-    color:var(--charcoal);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    position:relative;
-    overflow-x:hidden;
-  }
-
-  h1,h2,h3,h4,h5{
-    font-family:'Cormorant Garamond', serif;
-    font-weight:500;
-    letter-spacing:0.01em;
-    color:var(--ink);
-  }
-
-  img{display:block;max-width:100%;}
-  a{color:inherit;text-decoration:none;}
-  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
-
-  .wrap{max-width:1500px;margin:0 auto;padding:0 40px;position:relative;z-index:1;}
-
-  /* ---------- decorative blobs — sizes/positions/keyframes copied from guide ---------- */
-  .blob{position:absolute;border-radius:50%;filter:blur(60px);z-index:0;pointer-events:none;will-change:transform;transform:translateZ(0);}
-  .blob-a{width:520px;height:520px;top:-140px;left:-160px;background:radial-gradient(circle at 35% 35%, #F0F0F0, transparent 70%);animation:float1 22s ease-in-out infinite;}
-  .blob-b{width:460px;height:460px;bottom:-160px;right:-140px;background:radial-gradient(circle at 60% 60%, #E5E5E5, transparent 70%);animation:float2 26s ease-in-out infinite;}
-  .blob-c{width:340px;height:340px;top:30%;right:8%;background:radial-gradient(circle at 50% 50%, #D9D9D9, transparent 70%);animation:float1 18s ease-in-out infinite reverse;opacity:0.6;}
-  @keyframes float1{0%,100%{transform:translate3d(0,0,0);}50%{transform:translate3d(30px,-24px,0);}}
-  @keyframes float2{0%,100%{transform:translate3d(0,0,0);}50%{transform:translate3d(-24px,26px,0);}}
-
-  /* ---------- reveal — transform+opacity only, values copied from guide ---------- */
-  .reveal{
-    opacity:0;
-    transform:translateY(36px) translateZ(0);
-    transition:opacity .8s cubic-bezier(.16,.84,.44,1), transform .8s cubic-bezier(.16,.84,.44,1);
-    will-change:opacity, transform;
-  }
-  .reveal.in{opacity:1;transform:translateY(0) translateZ(0);will-change:auto;}
-
-  /* ---------- glass base — identical to guide's .glass ---------- */
-  .glass{
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border:var(--glass-border);
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-    position:relative;
-  }
-  .glass:hover{box-shadow:var(--shadow-lift), var(--glass-highlight);}
-
-  /* ---------- eyebrow — identical spec to guide's .eyebrow ---------- */
-  .eyebrow{
-    font-family:'Inter', sans-serif;
-    font-size:11px;
-    letter-spacing:0.28em;
-    text-transform:uppercase;
-    color:var(--clay);
-    font-weight:600;
-  }
-
-  /* ============ HEADER — floating glass pill, same construction as guide's <nav> ============ */
-  header{
-    position:sticky;
-    top:16px;
-    z-index:100;
-    padding:0;
-  }
-  .header-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-    padding:14px 30px;
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border:var(--glass-border);
-    border-radius:var(--r-pill);
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-    transition:box-shadow .3s ease;
-  }
-  header.is-scrolled .header-inner{box-shadow:var(--shadow-lift), var(--glass-highlight);}
-
-  .logo{display:flex;align-items:center;flex-shrink:0;}
-  .logo img{height:40px;width:auto;}
-
-  nav.main-nav{display:flex;align-items:center;gap:26px;flex-shrink:0;}
-  nav.main-nav a{
-    font-size:12.5px;
-    font-weight:500;
-    letter-spacing:0.05em;
-    color:var(--graphite);
-    white-space:nowrap;
-    position:relative;
-    padding-bottom:6px;
-    transition:color .3s ease;
-  }
-  nav.main-nav a:hover{color:var(--bronze);}
-  nav.main-nav a.active{color:var(--bronze);}
-  nav.main-nav a.active::after{
-    content:"";position:absolute;left:50%;bottom:-2px;width:4px;height:4px;
-    border-radius:50%;background:var(--gold);transform:translateX(-50%);
-  }
-
-  .header-actions{display:flex;align-items:center;gap:18px;flex-shrink:0;}
-  .icon-btn{display:flex;align-items:center;justify-content:center;width:22px;height:22px;color:var(--ink);position:relative;transition:opacity .25s ease;}
-  .icon-btn:hover{opacity:0.6;}
-  .icon-btn svg{width:20px;height:20px;}
-
-  .cart-wrap{position:relative;}
-  .cart-badge{
-    position:absolute;top:-9px;right:-10px;background:var(--bronze);color:#fff;
-    font-size:10px;font-weight:500;width:16px;height:16px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;line-height:1;
-  }
-
-  .cta-btn{
-    display:inline-flex;align-items:center;gap:8px;
-    background:linear-gradient(160deg, #2A2A2A, #000000);
-    color:var(--cream);
-    padding:12px 20px;
-    border-radius:var(--r-pill);
-    font-size:13.5px;font-weight:500;letter-spacing:0.02em;white-space:nowrap;
-    box-shadow:var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.12);
-    transition:transform .3s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
-  }
-  .cta-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift), inset 0 1px 0 rgba(255,255,255,0.12);}
-  .cta-btn svg{width:14px;height:14px;transition:transform .3s ease;}
-  .cta-btn:hover svg{transform:translateX(3px);}
-
-  /* ============ HERO ============ */
-  .hero-section{padding:70px 0 44px;position:relative;}
-
-  .hero-grid{display:grid;grid-template-columns:0.78fr 1fr;gap:40px;align-items:center;position:relative;z-index:1;}
-  .hero-left{max-width:560px;}
-
-  .badge{
-    display:inline-flex;align-items:center;gap:8px;
-    border:var(--glass-border);
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    padding:9px 18px;border-radius:var(--r-pill);
-    font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--clay);
-    margin-bottom:28px;
-  }
-  .badge svg{width:13px;height:13px;flex-shrink:0;color:var(--gold);}
-
-  /* Display scale — 72px per Typography section of the brand guide */
-  .hero-left h1{
-    font-family:'Cormorant Garamond', serif;
-    font-size:clamp(46px, 6.5vw, 78px);
-    line-height:1.05;
-    font-weight:500;
-    letter-spacing:0.01em;
-    color:var(--ink);
-    margin-bottom:24px;
-  }
-  .hero-left h1 em{font-style:italic;color:var(--bronze);}
-
-  .hero-left p.lead{
-    font-size:16px;line-height:1.7;color:var(--graphite);font-weight:300;max-width:430px;margin-bottom:34px;
-  }
-
-  .hero-ctas{display:flex;align-items:center;gap:12px;margin-bottom:32px;}
-
-  .btn-outline{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border:var(--glass-border);
-    color:var(--ink);
-    padding:12px 20px;border-radius:var(--r-pill);
-    font-size:13.5px;font-weight:500;
-    transition:transform .3s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-  }
-  .btn-outline:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift), var(--glass-highlight);}
-  .btn-outline svg{width:14px;height:14px;color:var(--gold);}
-
-  .hero-trust{display:flex;align-items:center;gap:14px;}
-  .avatar-stack{display:flex;}
-  .avatar-stack img{width:38px;height:38px;border-radius:50%;border:2px solid #fff;object-fit:cover;margin-left:-10px;box-shadow:var(--shadow-soft);}
-  .avatar-stack img:first-child{margin-left:0;}
-
-  .trust-text{font-size:13px;}
-  .trust-text .trust-line1{color:var(--graphite);margin-bottom:2px;font-weight:300;}
-  .trust-rating{display:flex;align-items:center;gap:6px;font-weight:500;color:var(--ink);font-size:13.5px;}
-  .stars{color:var(--gold);letter-spacing:1px;font-size:12px;}
-
-  /* story-card asymmetric radius reused for the hero image, per guide vocabulary */
-  .hero-right{
-    position:relative;
-    border-radius:var(--r-asym-a);
-    overflow:hidden;
-    box-shadow:var(--shadow-lift);
-  }
-  .hero-right img{width:100%;height:640px;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.16,.84,.44,1);}
-  .hero-right:hover img{transform:scale(1.03);}
-
-  .hero-float-card{
-    position:absolute;top:34px;right:34px;width:230px;padding:22px 24px;border-radius:var(--r-card);
-  }
-  .hero-float-avatars{display:flex;margin-bottom:14px;}
-  .hero-float-avatars img{width:34px;height:34px;border-radius:50%;border:2px solid #fff;object-fit:cover;margin-left:-10px;}
-  .hero-float-avatars img:first-child{margin-left:0;}
-  .hero-float-card h4{font-size:19px;font-weight:500;margin-bottom:6px;}
-  .hero-float-card p{font-size:12.5px;line-height:1.5;color:var(--graphite);font-weight:300;}
-
-  .hero-index{
-    position:absolute;right:-38px;top:50%;transform:translateY(-50%);
-    display:flex;flex-direction:column;align-items:center;gap:10px;
-    font-size:11px;color:var(--clay);font-weight:500;letter-spacing:0.1em;
-  }
-  .hero-index .line{width:1px;height:34px;background:linear-gradient(var(--gold), transparent);}
-
-  /* ============ FEATURE STRIP ============ */
-  .feature-strip{padding:36px 0 60px;position:relative;}
-  .feature-card-outer{
-    border-radius:var(--r-card);
-    display:grid;grid-template-columns:repeat(4,1fr);
-    position:relative;z-index:1;
-  }
-  .feature-item{
-    display:flex;align-items:flex-start;gap:16px;padding:30px 34px;
-    border-right:1px solid rgba(0,0,0,0.07);
-    transition:transform .4s cubic-bezier(.16,.84,.44,1);
-  }
-  .feature-item:hover{transform:translateY(-8px);}
-  .feature-item:last-child{border-right:none;}
-  .feature-item svg{width:26px;height:26px;flex-shrink:0;margin-top:2px;color:var(--bronze);}
-  .feature-item h4{font-size:17px;font-weight:500;margin-bottom:5px;}
-  .feature-item p{font-size:13px;line-height:1.5;color:var(--graphite);font-weight:300;}
-
-  /* ============ COLLECTIONS ============ */
-  .collections-section{padding:24px 0 110px;position:relative;z-index:1;}
-  .collections-grid{display:grid;grid-template-columns:0.66fr repeat(5,1fr);gap:16px;align-items:end;}
-  .product-row{display:contents;}
-
-  .collections-intro{padding-bottom:8px;}
-  .collections-intro .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
-  .collections-intro .eyebrow .num{font-family:'Cormorant Garamond', serif;font-size:14px;color:var(--gold);letter-spacing:0.1em;}
-
-  /* H1 scale — 48px per Typography section */
-  .collections-intro h2{font-size:clamp(32px, 3.6vw, 48px);font-weight:500;line-height:1.15;margin-bottom:20px;}
-  .collections-intro p{font-size:15.5px;line-height:1.75;color:var(--graphite);font-weight:300;margin-bottom:24px;max-width:260px;}
-  .view-all{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--bronze);}
-  .view-all svg{width:14px;height:14px;transition:transform .3s ease;}
-  .view-all:hover svg{transform:translateX(3px);}
-
-  .product-card{display:flex;flex-direction:column;}
-  .product-card .thumb{
-    border-radius:var(--r-tile);overflow:hidden;aspect-ratio:1/1.18;margin-bottom:16px;
-    box-shadow:var(--shadow-soft);transition:box-shadow .3s ease;
-  }
-  .product-card:hover .thumb{box-shadow:var(--shadow-lift);}
-  .product-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,.84,.44,1);}
-  .product-card:hover .thumb img{transform:scale(1.06);}
-
-  .product-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
-  .product-meta-left{display:flex;gap:10px;align-items:flex-start;}
-  .product-meta-left svg{width:18px;height:18px;margin-top:3px;flex-shrink:0;color:var(--bronze);}
-  .product-meta h5{font-size:16px;font-weight:500;margin-bottom:4px;}
-  .product-meta p{font-size:12.5px;line-height:1.4;color:var(--graphite);font-weight:300;}
-  .circ-arrow{
-    width:36px;height:36px;border-radius:50%;border:1px solid var(--sand-deep);
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
-    transition:background .3s ease, border-color .3s ease, transform .3s cubic-bezier(.16,.84,.44,1);
-  }
-  .circ-arrow svg{width:13px;height:13px;}
-  .product-card:hover .circ-arrow{background:var(--bronze);border-color:var(--bronze);transform:rotate(45deg);}
-  .product-card:hover .circ-arrow svg{color:#fff;}
-
-  /* ============ RESPONSIVE ============ */
-  @media (max-width:1200px){
-    .wrap{padding:0 28px;}
-    nav.main-nav{gap:22px;}
-    .collections-grid{grid-template-columns:1fr;}
-    .collections-intro{max-width:600px;}
-    .collections-intro p{max-width:100%;}
-    .product-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  }
-
-  @media (max-width:1024px){
-    nav.main-nav{display:none;}
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-right img{height:420px;}
-    .hero-index{display:none;}
-    .feature-card-outer{grid-template-columns:repeat(2,1fr);}
-    .feature-item{border-bottom:1px solid rgba(0,0,0,0.07);}
-    .feature-item:nth-child(2){border-right:none;}
-    .feature-item:nth-child(4){border-right:none;}
-  }
-
-  @media (max-width:900px){
-    :root{--glass-blur:10px;}
-  }
-
-  @media (max-width:640px){
-    .wrap{padding:0 20px;}
-    header{top:10px;}
-    .header-inner{padding:12px 18px;flex-wrap:wrap;border-radius:28px;}
-    .cta-btn span.label{display:none;}
-    .hero-ctas{flex-wrap:wrap;}
-    .feature-card-outer{grid-template-columns:1fr;}
-    .feature-item{border-right:none;}
-    .product-row{grid-template-columns:repeat(2,1fr);}
-    .hero-float-card{position:static;margin-top:14px;width:100%;}
-    .hero-right{border-radius:36px;}
-  }
-
+  --clay:#4A4A4A;
+  --charcoal:#1F1F1F;
+  --graphite:#4A4A4A;
+  --ink:#000000;
+  --glass-blur:14px;
+  --glass-sat:140%;
+  --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+  --glass-border:1px solid rgba(255,255,255,0.7);
+  --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --ink-soft:var(--graphite);
+  --r-app:38px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+.feature-glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border:var(--glass-border);
+  box-shadow:var(--shadow-soft), var(--glass-highlight);
+  position:relative;
+}
+.feature-strip{padding:20px 40px 70px;}
+.feature-card-outer{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-radius:var(--r-app);
+  overflow:hidden;
+  max-width:1500px;
+  margin:0 auto;
+}
+.feature-item{
+  display:flex;align-items:center;gap:16px;
+  padding:28px 26px;
+  border-right:1px solid rgba(0,0,0,0.06);
+}
+.feature-item:last-child{border-right:none;}
+.feature-item svg{width:26px;height:26px;color:var(--charcoal);flex-shrink:0;}
+.feature-item h4{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:500;
+  color:var(--ink);
+  font-size:15px;margin-bottom:4px;
+}
+.feature-item p{font-size:12.5px;color:var(--ink-soft);line-height:1.4;}
+@media (max-width:1024px){
+  .feature-card-outer{grid-template-columns:repeat(2,1fr);}
+  .feature-item{border-bottom:1px solid rgba(0,0,0,0.06);border-right:none;}
+}
+@media (max-width:640px){
+  .feature-card-outer{grid-template-columns:1fr;}
+  .feature-item{border-right:none;}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
+
   <header>
     <div class="header-inner">
       <div class="logo">
         <img src="assets/logo.png" alt="h.m.a Handicrafts">
       </div>
-        
+
       <nav class="main-nav">
         <a href="#" class="active">Home</a>
         <a href="#">About Us</a>
@@ -405,1580 +414,1136 @@
       </nav>
 
       <div class="header-actions">
-        <button class="icon-btn" aria-label="Search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <button class="icon-btn" aria-label="Account">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </button>
-        <button class="icon-btn cart-wrap" aria-label="Cart">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-badge">2</span>
-        </button>
         <a href="#" class="cta-btn">
           <span class="label">Get in Touch</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </button>
       </div>
     </div>
+
+    <nav class="mobile-nav">
+      <a href="#" class="active">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Products</a>
+      <a href="#">Custom Orders</a>
+      <a href="#">Why Us</a>
+      <a href="#">Catalog</a>
+      <a href="#">Blogs</a>
+      <a href="#">Contact Us</a>
+    </nav>
   </header>
 
-  <section class="hero-section">
-    <div class="blob blob-a"></div>
-    <div class="blob blob-b"></div>
-    <div class="hero-grid">
-      <div class="hero-left reveal">
-        <span class="badge">
+<section class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+        CRAFTED TO INSPIRE
+      </span>
+      <h1>Timeless Craft.<br>Modern Living.</h1>
+      <p class="lead">Handcrafted products that blend tradition, elegance and functionality for everyday living.</p>
+
+      <div class="hero-ctas">
+        <a href="#" class="cta-btn">
+          Explore Collections
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#" class="btn-outline">
+          Custom Orders
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
-          CRAFTED TO INSPIRE
-        </span>
-        <h1>Timeless Craft.<br>Modern Living.</h1>
-        <p class="lead">Handcrafted products that blend tradition, elegance and functionality for everyday living.</p>
-
-        <div class="hero-ctas">
-          <a href="#" class="cta-btn">
-            Explore Collections
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a href="#" class="btn-outline">
-            Custom Orders
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
-          </a>
-        </div>
-
-        <div class="hero-trust">
-          <div class="avatar-stack">
-            <img src="https://i.pravatar.cc/80?img=12" alt="">
-            <img src="https://i.pravatar.cc/80?img=13" alt="">
-            <img src="https://i.pravatar.cc/80?img=32" alt="">
-            <img src="https://i.pravatar.cc/80?img=47" alt="">
-          </div>
-          <div class="trust-text">
-            <div class="trust-line1">Trusted by 500+ customers</div>
-            <div class="trust-rating">4.9 <span class="stars">★★★★★</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-right reveal">
-        <img src="assets/hero.jpg.png" alt="Handcrafted ceramic vases and bowls by h.m.a Handicrafts">
-        <div class="hero-float-card glass reveal">
-          <div class="hero-float-avatars">
-            <img src="https://i.pravatar.cc/80?img=5" alt="">
-            <img src="https://i.pravatar.cc/80?img=15" alt="">
-          </div>
-          <h4>Made by Hand</h4>
-          <p>Every piece is crafted by skilled artisans with passion and care.</p>
-        </div>
-        <div class="hero-index">
-          <span>01</span>
-          <span class="line"></span>
-          <span>03</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="feature-strip">
-    <div class="feature-card-outer glass">
-      <div class="feature-item reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
-        <div>
-          <h4>Worldwide Shipping</h4>
-          <p>Delivering handcrafted beauty worldwide.</p>
-        </div>
-      </div>
-      <div class="feature-item reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>
-        <div>
-          <h4>Premium Quality</h4>
-          <p>Finest materials, exceptional quality.</p>
-        </div>
-      </div>
-      <div class="feature-item reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-        <div>
-          <h4>Secure Packaging</h4>
-          <p>Packed with care, delivered safely.</p>
-        </div>
-      </div>
-      <div class="feature-item reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-        <div>
-          <h4>Sustainable &amp; Ethical</h4>
-          <p>We care for people and our planet.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<script>
-// h.m.a Handicrafts — landing page interactions
-
-document.addEventListener('DOMContentLoaded', function () {
-  var header = document.querySelector('header');
-
-  // Add a subtle shadow to the header once the page scrolls
-  function handleScroll() {
-    if (window.scrollY > 8) {
-      header.classList.add('is-scrolled');
-    } else {
-      header.classList.remove('is-scrolled');
-    }
-  }
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-
-  // Reveal-on-scroll: fade + rise elements into view as the user scrolls
-  var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && revealEls.length) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-
-    revealEls.forEach(function (el, i) {
-      el.style.transitionDelay = (i % 6) * 0.06 + 's';
-      observer.observe(el);
-    });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('in'); });
-  }
-
-  // Smooth-scroll for in-page nav links (currently all placeholders)
-  document.querySelectorAll('a[href="#"]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-    });
-  });
-});
-
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HMA Handicrafts — The Art Behind Every Piece</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
-
-<style>
-
-  /* ============================================================
-     HMA — SCOPED HOME / ABOUT SECTION
-     Design tokens mirror the h.m.a Brand Guide 1:1 (see page 1:
-     Home landing page) so this page reads as built by the same
-     designer. All rules stay namespaced under .hma-page — and all
-     custom keyframes/classnames are hma-prefixed — to avoid any
-     collision once the pages are combined.
-  ============================================================ */
-
-  .hma-page{
-    --ivory:#FAFAFA;
-    --cream:#FFFFFF;
-    --sand:#F5F5F7;
-    --sand-deep:#EAEAEA;
-    --taupe:#D9D9D9;
-    --clay:#4A4A4A;
-    --bronze:#000000;
-    --gold:#1F1F1F;
-    --gold-soft:#EAEAEA;
-    --charcoal:#1F1F1F;
-    --graphite:#4A4A4A;
-    --ink:#000000;
-
-    --glass-blur:14px;
-    --glass-sat:140%;
-    --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
-    --glass-border:1px solid rgba(255,255,255,0.7);
-    --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
-    --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
-    --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
-
-    /* radius vocabulary — identical set used across the brand guide's components */
-    --r-pill:100px;
-    --r-tile:30px;      /* thumbnails / swatches */
-    --r-card:34px;      /* rule-card / heritage-card / row-card */
-    --r-app:38px;
-    --r-hero:60px;
-    --r-asym-a:42px 90px 42px 90px;   /* photo cards */
-    --r-asym-b:90px 42px 90px 42px;   /* philosophy photo */
-    --r-asym-v:44px 90px 44px 90px;   /* quote card */
-
-    box-sizing:border-box;
-    font-family:'Inter', sans-serif;
-    font-weight:400;
-    color: var(--charcoal);
-    background:
-      radial-gradient(ellipse 1200px 800px at 15% -5%, #FFFFFF 0%, transparent 55%),
-      radial-gradient(ellipse 1000px 900px at 100% 20%, #F2F2F4 0%, transparent 50%),
-      radial-gradient(ellipse 1200px 900px at 0% 80%, #EDEDED 0%, transparent 55%),
-      linear-gradient(180deg, var(--ivory) 0%, #F0F0F0 50%, var(--ivory) 100%);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    overflow-x:hidden;
-    position:relative;
-  }
-  html{ scroll-behavior:smooth; } /* harmless if page 1 already sets this when merged */
-  .hma-page *, .hma-page *::before, .hma-page *::after{ box-sizing:border-box; }
-  .hma-page img{ max-width:100%; display:block; }
-  .hma-page a{ color:inherit; text-decoration:none; }
-  .hma-page ul{ list-style:none; margin:0; padding:0; }
-  .hma-page button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
-
-  .hma-page h1,.hma-page h2,.hma-page h3,.hma-page h4,.hma-page h5{
-    font-family:'Cormorant Garamond', serif;
-    font-weight:500;
-    color:var(--ink);
-    letter-spacing:0.01em;
-    margin:0;
-  }
-
-  /* plain eyebrow — identical spec to page 1's .eyebrow, used for section labels */
-  .hma-eyebrow{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Inter', sans-serif;
-    font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
-    color:var(--clay); font-weight:600; margin-bottom:16px;
-  }
-  .hma-eyebrow::before{
-    content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); flex:0 0 auto;
-  }
-
-  /* glass badge — the hero-only pill eyebrow, ported from page 1's .badge */
-  .hma-badge{
-    display:inline-flex; align-items:center; gap:8px;
-    border:var(--glass-border);
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    padding:9px 18px; border-radius:var(--r-pill);
-    font-size:11px; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:var(--clay);
-    margin-bottom:26px;
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-    contain:paint;
-  }
-  .hma-badge svg{ width:13px; height:13px; flex-shrink:0; color:var(--gold); }
-
-  .hma-wrap{ max-width:1500px; margin:0 auto; padding:0 40px; position:relative; z-index:1; }
-
-  @media (max-width:900px){ .hma-wrap{ padding:0 20px; } }
-
-  /* ---------------------------------------------------------------
-     DECORATIVE BLOBS — sizes / keyframes ported from page 1's .blob
-  --------------------------------------------------------------- */
-  .hma-blob{ position:absolute; border-radius:50%; filter:blur(60px); z-index:0; pointer-events:none; will-change:transform; transform:translateZ(0); contain:paint; }
-  .hma-blob-a{ width:480px; height:480px; top:-160px; left:-140px; background:radial-gradient(circle at 35% 35%, #F0F0F0, transparent 70%); animation:hmaFloat1 22s ease-in-out infinite; }
-  .hma-blob-b{ width:420px; height:420px; bottom:-160px; right:-120px; background:radial-gradient(circle at 60% 60%, #E5E5E5, transparent 70%); animation:hmaFloat2 26s ease-in-out infinite; }
-  @keyframes hmaFloat1{ 0%,100%{ transform:translate3d(0,0,0); } 50%{ transform:translate3d(30px,-24px,0); } }
-  @keyframes hmaFloat2{ 0%,100%{ transform:translate3d(0,0,0); } 50%{ transform:translate3d(-24px,26px,0); } }
-
-  /* ---------------------------------------------------------------
-     NAV — floating glass pill, same construction as page 1's <header>
-  --------------------------------------------------------------- */
-  .hma-nav{ position:sticky; top:16px; z-index:200; padding:0 40px; }
-  @media (max-width:900px){ .hma-nav{ padding:0 20px; } }
-
-  .hma-nav-inner{
-    max-width:1420px; margin:0 auto;
-    padding:14px 30px;
-    display:flex; align-items:center; justify-content:space-between; gap:24px;
-    background:var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border:var(--glass-border);
-    border-radius:var(--r-pill);
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-    transition:box-shadow .3s ease;
-    contain:paint; transform:translateZ(0);
-  }
-  .hma-nav.hma-is-scrolled .hma-nav-inner{ box-shadow:var(--shadow-lift), var(--glass-highlight); }
-
-  .hma-brand{ display:flex; align-items:center; flex-shrink:0; }
-  .hma-brand img{ height:40px; width:auto; }
-
-  .hma-nav-links{ display:flex; align-items:center; gap:26px; flex:1; justify-content:center; }
-  .hma-nav-links a{
-    font-size:12.5px; font-weight:500; letter-spacing:0.05em; color:var(--graphite);
-    position:relative; padding-bottom:6px; white-space:nowrap;
-    transition:color .25s ease;
-  }
-  .hma-nav-links a:hover{ color:var(--bronze); }
-  .hma-nav-links a.active{ color:var(--bronze); }
-  .hma-nav-links a.active::after{
-    content:''; position:absolute; left:50%; bottom:-2px; transform:translateX(-50%);
-    width:4px; height:4px; border-radius:50%; background:var(--gold);
-  }
-
-  .hma-nav-actions{ display:flex; align-items:center; gap:18px; flex-shrink:0; }
-  .hma-icon-btn{
-    width:22px; height:22px; display:flex; align-items:center; justify-content:center;
-    position:relative; color:var(--ink); transition:opacity .25s ease;
-  }
-  .hma-icon-btn:hover{ opacity:0.6; }
-  .hma-icon-btn svg{ width:20px; height:20px; }
-  .hma-cart{ position:relative; }
-  .hma-cart-badge{
-    position:absolute; top:-9px; right:-10px;
-    width:16px; height:16px; border-radius:50%;
-    background:var(--bronze); color:#fff; font-size:10px; font-weight:500;
-    display:flex; align-items:center; justify-content:center; line-height:1;
-  }
-  .hma-cta{
-    display:inline-flex; align-items:center; gap:8px;
-    background:linear-gradient(160deg, #2A2A2A, #000000);
-    color:var(--cream);
-    padding:12px 20px; border-radius:var(--r-pill);
-    font-size:13.5px; font-weight:500; letter-spacing:0.02em; white-space:nowrap;
-    box-shadow:var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.12);
-    transition:transform .3s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
-  }
-  .hma-cta:hover{ transform:translateY(-2px); box-shadow:var(--shadow-lift), inset 0 1px 0 rgba(255,255,255,0.12); }
-  .hma-cta svg{ width:14px; height:14px; transition:transform .3s ease; }
-  .hma-cta:hover svg{ transform:translateX(3px); }
-
-  .hma-nav-toggle{ display:none; }
-
-  /* ---------------------------------------------------------------
-     HERO
-  --------------------------------------------------------------- */
-  .hma-hero-section{ padding:36px 40px 0; position:relative; }
-  @media (max-width:900px){ .hma-hero-section{ padding:24px 16px 0; } }
-
-  .hma-hero-card{
-    max-width:1420px; margin:0 auto;
-    background:linear-gradient(150deg,#F2F1EE 0%, #EAE8E4 100%);
-    border-radius:var(--r-hero);
-    padding:56px 56px 0;
-    position:relative;
-    overflow:visible;
-    z-index:1;
-  }
-  .hma-hero-grid{
-    display:grid; grid-template-columns: 0.92fr 1.08fr;
-    gap:56px; align-items:center;
-  }
-  .hma-hero-left{ padding-bottom:56px; }
-  .hma-hero-left h1{
-    font-size:clamp(34px, 3.6vw, 50px);
-    line-height:1.1; font-weight:500; letter-spacing:0.01em; margin-bottom:22px;
-  }
-  .hma-hero-left p{
-    font-size:15px; line-height:1.75; color:var(--graphite);
-    font-weight:300; max-width:400px; margin-bottom:34px;
-  }
-  .hma-sig-row{ display:flex; align-items:flex-end; gap:26px; flex-wrap:wrap; }
-  .hma-sig-row img{ height:52px; width:auto; opacity:0.9; }
-  .hma-sig-blank{
-    width:150px; height:46px; background:#fff; border-radius:14px;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .hma-hero-right{ position:relative; align-self:stretch; }
-  .hma-hero-photo{
-    width:100%; height:460px;
-    border-radius:var(--r-asym-a);
-    overflow:hidden;
-    background-color:#3a352f;
-    box-shadow: var(--shadow-lift);
-  }
-  .hma-hero-photo img{
-    width:100%; height:100%; object-fit:cover; object-position:center 30%;
-    transition:transform .8s cubic-bezier(.16,.84,.44,1);
-  }
-  .hma-hero-photo:hover img{ transform:scale(1.03); }
-
-  /* stats bar overlapping the hero bottom */
-  .hma-stats-bar{
-    margin-top:-38px; position:relative; z-index:5;
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border: var(--glass-border);
-    box-shadow: var(--shadow-soft), var(--glass-highlight);
-    border-radius:var(--r-card);
-    display:grid; grid-template-columns:repeat(6,1fr);
-    padding:26px 10px;
-    contain:paint;
-  }
-  .hma-stat{
-    display:flex; flex-direction:column; align-items:center; gap:10px;
-    text-align:center; padding:0 8px; position:relative;
-  }
-  .hma-stat + .hma-stat::before{
-    content:''; position:absolute; left:0; top:8px; bottom:8px; width:1px;
-    background:rgba(0,0,0,0.08);
-  }
-  .hma-stat .hma-stat-icon{
-    width:34px; height:34px; border-radius:50%;
-    background:rgba(255,255,255,0.7); border:1px solid rgba(0,0,0,0.06);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .hma-stat .hma-stat-icon svg{ width:16px; height:16px; color:var(--bronze); }
-  .hma-stat strong{ font-family:'Cormorant Garamond', serif; font-size:24px; font-weight:600; color:var(--ink); }
-  .hma-stat span{ font-size:11px; color:var(--graphite); line-height:1.3; font-weight:400; }
-
-  .hma-hero-section-spacer{ height:70px; }
-
-  /* ---------------------------------------------------------------
-     PHILOSOPHY + HERITAGE
-  --------------------------------------------------------------- */
-  .hma-phil-section{ padding:0px 40px 90px; position:relative; z-index:1; content-visibility:auto; contain-intrinsic-size:auto 700px; }
-  .hma-phil-grid{
-    max-width:1420px; margin:0 auto;
-    display:grid; grid-template-columns: 0.98fr 1.02fr; gap:32px; align-items:stretch;
-  }
-  .hma-phil-left h2{
-    font-size:clamp(26px,2.6vw,36px); line-height:1.32; font-weight:500; letter-spacing:0.01em; margin-bottom:18px;
-  }
-  .hma-phil-left > p{
-    font-size:14.5px; color:var(--graphite); line-height:1.75; font-weight:300;
-    max-width:430px; margin-bottom:34px;
-  }
-  .hma-phil-photo{
-    width:100%; height:300px;
-    border-radius:var(--r-asym-b);
-    overflow:hidden;
-    background-color:#e7e3dc;
-    box-shadow: var(--shadow-soft);
-  }
-  .hma-phil-photo img{
-    width:100%; height:100%; object-fit:cover; object-position:center;
-    transition:transform .8s cubic-bezier(.16,.84,.44,1);
-  }
-  .hma-phil-photo:hover img{ transform:scale(1.03); }
-
-  .hma-heritage-card{
-    background:var(--cream);
-    border-radius:var(--r-card);
-    padding:40px 40px 30px;
-    box-shadow: var(--shadow-soft);
-    transition:box-shadow .3s ease;
-    contain:layout paint;
-  }
-  .hma-heritage-card:hover{ box-shadow:var(--shadow-lift); }
-  .hma-timeline{ margin-top:26px; position:relative; padding-left:4px; }
-  .hma-timeline-line{
-    position:absolute; left:5px; top:6px; bottom:6px; width:1px;
-    background:linear-gradient(var(--ink), var(--taupe) 80%, transparent);
-  }
-  .hma-t-item{ display:grid; grid-template-columns:22px 1fr; gap:20px; margin-bottom:26px; }
-  .hma-t-item:last-child{ margin-bottom:0; }
-  .hma-t-dot{
-    width:10px; height:10px; border-radius:50%; background:var(--gold);
-    margin-left:0px; margin-top:5px; box-shadow:0 0 0 5px rgba(0,0,0,0.06);
-  }
-  .hma-t-item .yr{ font-family:'Inter'; font-size:12px; font-weight:600; letter-spacing:0.04em; color:var(--ink); display:block; margin-bottom:4px; }
-  .hma-t-item p{ font-size:13.5px; color:var(--graphite); line-height:1.6; font-weight:300; max-width:320px; }
-
-  /* ---------------------------------------------------------------
-     MATERIALS / FINISHES (image-card rows)
-  --------------------------------------------------------------- */
-  .hma-materials-section{ padding:0 40px 30px; position:relative; z-index:1; content-visibility:auto; contain-intrinsic-size:auto 1500px; }
-  .hma-materials-inner{ max-width:1420px; margin:0 auto; display:flex; flex-direction:column; gap:24px; }
-
-  .hma-row-card{
-    background:var(--cream);
-    border-radius:var(--r-card);
-    padding:30px 34px 34px;
-    box-shadow: var(--shadow-soft);
-    transition:box-shadow .3s ease;
-    contain:layout paint;
-  }
-  .hma-row-card:hover{ box-shadow:var(--shadow-lift); }
-  .hma-row-title{ margin-bottom:22px; }
-
-  .hma-materials-grid{
-    display:grid; grid-template-columns:repeat(7,1fr) 1.05fr; gap:16px; align-items:stretch;
-  }
-  .hma-material{ text-align:left; }
-  .hma-material .swatch{
-    width:100%; aspect-ratio:1/1; border-radius:var(--r-tile); margin-bottom:14px;
-    overflow:hidden; background:var(--sand-deep);
-    box-shadow:var(--shadow-soft);
-  }
-  .hma-material .swatch img{
-    width:100%; height:100%; object-fit:cover; object-position:center;
-    display:block; transition:transform .6s cubic-bezier(.16,.84,.44,1);
-  }
-  .hma-material:hover .swatch{ box-shadow:var(--shadow-lift); }
-  .hma-material:hover .swatch img{ transform:scale(1.06); }
-  .hma-material h5{ font-family:'Inter'; font-size:13.5px; font-weight:600; color:var(--ink); margin-bottom:5px; }
-  .hma-material .desc-row{ display:flex; align-items:flex-end; justify-content:space-between; gap:6px; }
-  .hma-material p{ font-size:11.5px; color:var(--graphite); line-height:1.4; font-weight:300; }
-  .hma-material .arrow{
-    flex:0 0 auto; width:14px; height:14px; color:var(--bronze);
-    transform:translateY(-1px); transition:transform .25s ease;
-  }
-  .hma-material:hover .arrow{ transform:translate(3px,-3px); }
-  .hma-material:hover h5{ text-decoration:underline; text-underline-offset:3px; }
-
-  .hma-viewall{
-    border:var(--glass-border);
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border-radius:var(--r-tile);
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
-    padding:20px 14px; text-align:center; min-height:100%;
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-    transition: transform .3s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
-    contain:paint;
-  }
-  .hma-viewall:hover{ transform:translateY(-3px); box-shadow:var(--shadow-lift), var(--glass-highlight); }
-  .hma-viewall .grid-icon{
-    display:grid; grid-template-columns:repeat(2,10px); grid-template-rows:repeat(2,10px); gap:4px;
-  }
-  .hma-viewall .grid-icon span{ background:var(--bronze); border-radius:2px; display:block; }
-  .hma-viewall strong{ font-family:'Inter'; font-size:13px; font-weight:600; color:var(--ink); line-height:1.3; }
-  .hma-viewall .arrow{ width:13px; height:13px; color:var(--bronze); transition:transform .3s ease; }
-  .hma-viewall:hover .arrow{ transform:translateX(3px); }
-  .hma-viewall .label-row{ display:flex; align-items:center; gap:6px; }
-
-  /* ---------------------------------------------------------------
-     QUOTE / FOUNDER
-  --------------------------------------------------------------- */
-  .hma-quote-section{ padding:60px 40px 100px; position:relative; z-index:1; content-visibility:auto; contain-intrinsic-size:auto 560px; }
-  .hma-quote-card{
-    max-width:1420px; margin:0 auto;
-    background:linear-gradient(160deg,#F5F4F1,#EDEBE6);
-    border-radius:var(--r-asym-v);
-    padding:64px 60px;
-    display:grid; grid-template-columns:1.5fr 1fr; gap:50px; align-items:center;
-    box-shadow:var(--shadow-soft);
-  }
-  .hma-quote-mark{ width:34px; height:26px; color:var(--bronze); margin-bottom:26px; opacity:0.85; }
-  .hma-quote-card blockquote{
-    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:400;
-    font-size:clamp(24px,2.4vw,34px); line-height:1.4; color:var(--ink); margin:0 0 22px;
-  }
-  .hma-quote-caption{ font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--clay); font-weight:600; }
-
-  .hma-quote-right{
-    border-left:1px solid rgba(0,0,0,0.1); padding-left:44px;
-    display:flex; flex-direction:column; gap:14px;
-  }
-  .hma-quote-right img{ height:44px; width:auto; margin-bottom:2px; }
-  .hma-quote-right .role{ font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink); font-weight:600; }
-  .hma-quote-right p{ font-size:13.5px; color:var(--graphite); line-height:1.7; font-weight:300; }
-
-  /* ---------------------------------------------------------------
-     REVEAL ANIMATION — transform+opacity only, timing ported from page 1
-  --------------------------------------------------------------- */
-  .hma-reveal{
-    opacity:0;
-    transform:translateY(20px) translateZ(0);
-    transition:opacity .4s cubic-bezier(.16,.84,.44,1), transform .4s cubic-bezier(.16,.84,.44,1);
-    will-change:opacity, transform;
-  }
-  .hma-reveal.hma-in{ opacity:1; transform:translateY(0) translateZ(0); will-change:auto; }
-
-  @media (prefers-reduced-motion: reduce){
-    .hma-page .hma-reveal{ transition:none; opacity:1; transform:none; }
-    .hma-page .hma-blob{ animation:none; }
-  }
-
-  /* ---------------------------------------------------------------
-     RESPONSIVE
-  --------------------------------------------------------------- */
-  @media (max-width:1200px){
-    .hma-nav-inner{ padding:12px 24px; }
-  }
-  @media (max-width:1180px){
-    .hma-materials-grid{ grid-template-columns:repeat(4,1fr); row-gap:26px; }
-    .hma-viewall{ grid-column:span 2; flex-direction:row; padding:16px 22px; }
-    .hma-nav-links{ display:none; }
-    .hma-nav-toggle{
-      display:flex; width:38px; height:38px; align-items:center; justify-content:center;
-      border:none; background:transparent; border-radius:50%; color:var(--ink);
-    }
-    .hma-nav-toggle svg{ width:20px; height:20px; }
-  }
-  @media (max-width:900px){
-    .hma-hero-grid{ grid-template-columns:1fr; }
-    .hma-hero-left{ padding-bottom:30px; }
-    .hma-hero-photo{ height:340px; }
-    .hma-stats-bar{ grid-template-columns:repeat(3,1fr); row-gap:22px; }
-    .hma-stat + .hma-stat::before{ display:none; }
-    .hma-phil-grid{ grid-template-columns:1fr; }
-    .hma-quote-card{ grid-template-columns:1fr; }
-    .hma-quote-right{ border-left:none; border-top:1px solid rgba(0,0,0,0.1); padding-left:0; padding-top:28px; }
-  }
-  @media (max-width:640px){
-    .hma-hero-card{ padding:32px 26px 0; border-radius:36px; }
-    .hma-phil-section, .hma-materials-section, .hma-quote-section{ padding-left:16px; padding-right:16px; }
-    .hma-quote-card{ padding:40px 28px; }
-    .hma-materials-grid{ grid-template-columns:repeat(2,1fr); }
-    .hma-viewall{ grid-column:span 2; }
-    .hma-row-card{ padding:22px 18px 26px; }
-    .hma-nav-inner{ padding:12px 18px; border-radius:28px; }
-    .hma-cta span{ display:none; }
-    .hma-cta{ padding:12px 14px; }
-  }
-</style>
-</head>
-<body>
-
-<div class="hma-page">
-
-  <!-- ============ NAV ============ -->
-  <header class="hma-nav">
-    <div class="hma-nav-inner">
-      <a href="#" class="hma-brand" aria-label="HMA Handicrafts — Home">
-        <img src="assets/hma-logo.png" alt="HMA Handicrafts" decoding="async">
-      </a>
-
-      <nav class="hma-nav-links">
-        <a href="#" class="active">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Products</a>
-        <a href="#">Custom Orders</a>
-        <a href="#">Why Us</a>
-        <a href="#">Catalog</a>
-        <a href="#">Blogs</a>
-        <a href="#">Contact Us</a>
-      </nav>
-
-      <div class="hma-nav-actions">
-        <button class="hma-icon-btn" aria-label="Search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <button class="hma-icon-btn" aria-label="Account">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        </button>
-        <button class="hma-icon-btn hma-cart" aria-label="Cart, 1 item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.6 12.6a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
-          <span class="hma-cart-badge">1</span>
-        </button>
-        <a href="#" class="hma-cta">
-          <span>Get in Touch</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <button class="hma-nav-toggle" aria-label="Menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ============ HERO ============ -->
-  <section class="hma-hero-section">
-    <div class="hma-blob hma-blob-a"></div>
-    <div class="hma-blob hma-blob-b"></div>
-    <div class="hma-hero-card hma-reveal">
-      <div class="hma-hero-grid">
-
-        <div class="hma-hero-left">
-          <span class="hma-badge">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
-            Our Story
-          </span>
-          <h1>The Art Behind Every Piece.</h1>
-          <p>HMA Handicrafts is a celebration of tradition, skill and the human touch. We blend time-honored techniques with modern design to create timeless pieces that are made to be cherished.</p>
-          <div class="hma-sig-row">
-            <img src="assets/hma-signature.png" alt="Hasmat Ali, Founder signature" decoding="async">
-            <div class="hma-sig-blank" aria-hidden="true"></div>
-          </div>
-        </div>
-
-        <div class="hma-hero-right">
-          <div class="hma-hero-photo">
-            <img src="assets/hero-photo.png" alt="Artisan hand-carving a decorative stone piece in the workshop" fetchpriority="high" decoding="async">
-          </div>
-        </div>
-
       </div>
 
-      <div class="hma-stats-bar hma-reveal">
-        <div class="hma-stat">
-          <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg></div>
-          <strong>18+</strong><span>Years of Experience</span>
+      <div class="hero-trust">
+        <div class="avatar-stack">
+          <img src="https://i.pravatar.cc/80?img=12" alt="">
+          <img src="https://i.pravatar.cc/80?img=13" alt="">
+          <img src="https://i.pravatar.cc/80?img=32" alt="">
+          <img src="https://i.pravatar.cc/80?img=47" alt="">
         </div>
-        <div class="hma-stat">
-          <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 3-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.2c1.8.4 3.2 2 3.2 3.9 0 1.9-1.4 3.5-3.2 3.9"/><path d="M17.5 14.3c2.3.6 4 2.7 4 5.7"/></svg></div>
-          <strong>20+</strong><span>Global Clients</span>
-        </div>
-        <div class="hma-stat">
-          <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></div>
-          <strong>8+</strong><span>Countries Served</span>
-        </div>
-        <div class="hma-stat">
-          <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6.5 12.5 3 9l5-5 3.5 3.5M17.5 11.5 21 15l-5 5-3.5-3.5"/><path d="M8 16 16 8"/></svg></div>
-          <strong>100%</strong><span>Handcrafted Products</span>
-        </div>
-        <div class="hma-stat">
-          <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z"/></svg></div>
-          <strong>Premium</strong><span>Materials</span>
-        </div>
-        <div class="hma-stat">
-          <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></div>
-          <strong>Worldwide</strong><span>Shipping</span>
+        <div class="trust-text">
+          <div class="trust-line1">Trusted by 500+ customers</div>
+          <div class="trust-rating">4.9 <span class="stars">★★★★★</span></div>
         </div>
       </div>
     </div>
-    <div class="hma-hero-section-spacer"></div>
-  </section>
 
-  <!-- ============ PHILOSOPHY + HERITAGE ============ -->
-  <section class="hma-phil-section">
-    <div class="hma-phil-grid">
-
-      <div class="hma-phil-left hma-reveal">
-        <div class="hma-eyebrow">Our Philosophy</div>
-        <h2>We don't manufacture objects. We create pieces people will keep for generations.</h2>
-        <p>We believe true luxury lies in authenticity, patience and purpose. Every detail is thoughtfully crafted to bring beauty into everyday living.</p>
-        <div class="hma-phil-photo">
-          <img src="assets/philosophy-photo.png" alt="Handcrafted ceramic vase with dried flowers and bowl on a marble tray" loading="lazy" decoding="async">
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=800" alt="Handcrafted ceramic vases and bowls">
+      <div class="hero-float-card glass">
+        <div class="hero-float-avatars">
+          <img src="https://i.pravatar.cc/80?img=5" alt="">
+          <img src="https://i.pravatar.cc/80?img=15" alt="">
         </div>
+        <h4>Made by Hand</h4>
+        <p>Every piece is crafted by skilled artisans with passion and care.</p>
       </div>
-
-      <div class="hma-heritage-card hma-reveal">
-        <div class="hma-eyebrow">Our Heritage</div>
-
-        <div class="hma-timeline">
-          <div class="hma-timeline-line"></div>
-
-          <div class="hma-t-item">
-            <div class="hma-t-dot"></div>
-            <div><span class="yr">2008</span><p>HMA Handicrafts was founded with a passion for handcrafted design.</p></div>
-          </div>
-          <div class="hma-t-item">
-            <div class="hma-t-dot"></div>
-            <div><span class="yr">2012</span><p>Our first international client believed in our craftsmanship.</p></div>
-          </div>
-          <div class="hma-t-item">
-            <div class="hma-t-dot"></div>
-            <div><span class="yr">2016</span><p>Expanded our collection and strengthened artisan community.</p></div>
-          </div>
-          <div class="hma-t-item">
-            <div class="hma-t-dot"></div>
-            <div><span class="yr">2022</span><p>Became a trusted name in global handcrafted exports.</p></div>
-          </div>
-          <div class="hma-t-item">
-            <div class="hma-t-dot"></div>
-            <div><span class="yr">Today</span><p>Continuing our journey of creating timeless pieces worldwide.</p></div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ MATERIALS + FINISHES ============ -->
-  <section class="hma-materials-section">
-    <div class="hma-materials-inner">
-
-      <!-- Materials We Honor -->
-      <div class="hma-row-card hma-reveal">
-        <div class="hma-row-title hma-eyebrow">Materials We Honor</div>
-
-        <div class="hma-materials-grid">
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/materials/brass.png" alt="Brass" loading="lazy" decoding="async"></div>
-            <h5>Brass</h5>
-            <div class="desc-row"><p>Durable, elegant and made to last.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/materials/marble.png" alt="Marble" loading="lazy" decoding="async"></div>
-            <h5>Marble</h5>
-            <div class="desc-row"><p>Naturally unique, forever timeless.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/materials/wood.png" alt="Wood" loading="lazy" decoding="async"></div>
-            <h5>Wood</h5>
-            <div class="desc-row"><p>Sourced responsibly, crafted beautifully.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/materials/bone-inlay.png" alt="Bone Inlay" loading="lazy" decoding="async"></div>
-            <h5>Bone Inlay</h5>
-            <div class="desc-row"><p>Intricate artistry passed down.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/materials/mother-of-pearl.png" alt="Mother of Pearl" loading="lazy" decoding="async"></div>
-            <h5>Mother of Pearl</h5>
-            <div class="desc-row"><p>Natural beauty in every piece.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/materials/leather.png" alt="Leather" loading="lazy" decoding="async"></div>
-            <h5>Leather</h5>
-            <div class="desc-row"><p>Premium quality, soft and strong.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/materials/stone.png" alt="Stone" loading="lazy" decoding="async"></div>
-            <h5>Stone</h5>
-            <div class="desc-row"><p>Raw beauty, refined by hand.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-
-          <a href="#" class="hma-viewall">
-            <span class="grid-icon"><span></span><span></span><span></span><span></span></span>
-            <span class="label-row"><strong>View All<br>Materials</strong></span>
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Available Finishes -->
-      <div class="hma-row-card hma-reveal">
-        <div class="hma-row-title hma-eyebrow">Available Finishes</div>
-
-        <div class="hma-materials-grid">
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/finishes/antique-brass.png" alt="Antique Brass" loading="lazy" decoding="async"></div>
-            <h5>Antique Brass</h5>
-            <div class="desc-row"><p>Classic warmth with vintage appeal.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/finishes/polished-brass.png" alt="Polished Brass" loading="lazy" decoding="async"></div>
-            <h5>Polished Brass</h5>
-            <div class="desc-row"><p>High shine finish for a modern look.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/finishes/brushed-brass.png" alt="Brushed Brass" loading="lazy" decoding="async"></div>
-            <h5>Brushed Brass</h5>
-            <div class="desc-row"><p>Subtle texture with sophisticated tone.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/finishes/matte-black.png" alt="Matte Black" loading="lazy" decoding="async"></div>
-            <h5>Matte Black</h5>
-            <div class="desc-row"><p>Bold, minimal and everlasting.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/finishes/antique-silver.png" alt="Antique Silver" loading="lazy" decoding="async"></div>
-            <h5>Antique Silver</h5>
-            <div class="desc-row"><p>Timeless silver with old-world charm.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/finishes/polished-silver.png" alt="Polished Silver" loading="lazy" decoding="async"></div>
-            <h5>Polished Silver</h5>
-            <div class="desc-row"><p>Bright, refined and elegantly polished.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-          <a href="#" class="hma-material">
-            <div class="swatch"><img src="assets/finishes/natural-stone.png" alt="Natural Stone" loading="lazy" decoding="async"></div>
-            <h5>Natural Stone</h5>
-            <div class="desc-row"><p>Organic finish with unique character.</p>
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </div>
-          </a>
-
-          <a href="#" class="hma-viewall">
-            <span class="grid-icon"><span></span><span></span><span></span><span></span></span>
-            <span class="label-row"><strong>View All<br>Finishes</strong></span>
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============ QUOTE / FOUNDER ============ -->
-  <section class="hma-quote-section">
-    <div class="hma-quote-card hma-reveal">
+<section class="feature-strip">
+  <div class="feature-card-outer feature-glass">
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
       <div>
-        <svg class="hma-quote-mark" viewBox="0 0 44 34" fill="none"><path d="M0 34V19.5C0 8.5 6.8 1.6 17 0l1.8 5.4C11.6 7.4 8 12 8 18h9v16H0Zm24 0V19.5C24 8.5 30.8 1.6 41 0l1.8 5.4C35.6 7.4 32 12 32 18h9v16H24Z" fill="currentColor"/></svg>
-        <blockquote>Luxury isn't created by machines. It is created by people who care.</blockquote>
-        <p class="hma-quote-caption">Because the human touch can never be replaced.</p>
-      </div>
-      <div class="hma-quote-right">
-        <img src="assets/hma-signature.png" alt="Hasmat Ali signature" loading="lazy" decoding="async">
-        <span class="role">Founder, HMA Handicrafts</span>
-        <p>Thank you to our artisans, clients and partners who are part of this journey. Together, we keep craftsmanship alive.</p>
+        <h4>Worldwide Shipping</h4>
+        <p>Delivering handcrafted beauty worldwide.</p>
       </div>
     </div>
-  </section>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>
+      <div>
+        <h4>Premium Quality</h4>
+        <p>Finest materials, exceptional quality.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+      <div>
+        <h4>Secure Packaging</h4>
+        <p>Packed with care, delivered safely.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      <div>
+        <h4>Sustainable &amp; Ethical</h4>
+        <p>We care for people and our planet.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
+<style>
+.hma-page{
+  --ivory:#FAFAFA;
+  --cream:#FFFFFF;
+  --clay:#4A4A4A;
+  --bronze:#000000;
+  --gold:#1F1F1F;
+  --graphite:#4A4A4A;
+  --ink:#000000;
 
-<script>
-(function(){
-  var page = document.currentScript.closest('.hma-page') || document.querySelector('.hma-page');
+  --glass-blur:14px;
+  --glass-sat:140%;
+  --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+  --glass-border:1px solid rgba(255,255,255,0.7);
+  --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
 
-  // Floating pill nav — deepen the shadow once the page scrolls, same feel as page 1's header
-  // rAF-throttled so the class toggle runs at most once per frame, no matter how many
-  // scroll events the browser fires in between (keeps the main thread free for painting).
-  var nav = page.querySelector('.hma-nav');
-  var scrollTicking = false;
-  function applyScrollState(){
-    scrollTicking = false;
-    if(!nav) return;
-    if(window.scrollY > 8){ nav.classList.add('hma-is-scrolled'); }
-    else{ nav.classList.remove('hma-is-scrolled'); }
-  }
-  function handleScroll(){
-    if(scrollTicking) return;
-    scrollTicking = true;
-    requestAnimationFrame(applyScrollState);
-  }
-  window.addEventListener('scroll', handleScroll, { passive:true });
-  applyScrollState();
+  --r-pill:100px;
+  --r-card:34px;
+  --r-asym-a:42px 90px 42px 90px;
+}
+.hma-page *{ box-sizing:border-box; }
+.hma-page img{ max-width:100%; display:block; }
 
-  // Reveal-on-scroll: fade + rise elements into view as the user scrolls
-  var items = page.querySelectorAll('.hma-reveal');
+.hma-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  border:var(--glass-border);
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  padding:9px 18px; border-radius:var(--r-pill);
+  font-size:11px; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:var(--clay);
+  margin-bottom:26px;
+  box-shadow:var(--shadow-soft), var(--glass-highlight);
+}
+.hma-badge svg{ width:13px; height:13px; flex-shrink:0; color:var(--gold); }
 
-  if(!('IntersectionObserver' in window)){
-    items.forEach(function(el){ el.classList.add('hma-in'); });
-    return;
-  }
+.hma-hero-section{ padding:36px 40px 0; position:relative; }
+.hma-hero-card{
+  max-width:1420px; margin:0 auto;
+  background:linear-gradient(150deg,#F2F1EE 0%, #EAE8E4 100%);
+  border-radius:60px;
+  padding:56px 56px 0;
+  position:relative;
+  overflow:visible;
+  z-index:1;
+}
+.hma-hero-grid{
+  display:grid; grid-template-columns: 0.92fr 1.08fr;
+  gap:56px; align-items:center;
+}
+.hma-hero-left{ padding-bottom:56px; }
+.hma-hero-left h1{
+  font-family:'Cormorant Garamond', serif; font-weight:500; color:var(--ink); letter-spacing:0.01em;
+  font-size:clamp(34px, 3.6vw, 50px);
+  line-height:1.1; margin-bottom:22px;
+}
+.hma-hero-left p{
+  font-size:15px; line-height:1.75; color:var(--graphite);
+  font-weight:300; max-width:400px; margin-bottom:34px;
+}
+.hma-sig-row{ display:flex; align-items:flex-end; gap:26px; flex-wrap:wrap; }
+.hma-sig-row img{ height:52px; width:auto; opacity:0.9; }
+.hma-sig-blank{
+  width:150px; height:46px; background:#fff; border-radius:14px;
+  box-shadow: var(--shadow-soft);
+}
 
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('hma-in');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+.hma-hero-right{ position:relative; align-self:stretch; }
+.hma-hero-photo{
+  width:100%; height:460px;
+  border-radius:var(--r-asym-a);
+  overflow:hidden;
+  background-color:#3a352f;
+  box-shadow: var(--shadow-lift);
+}
+.hma-hero-photo img{
+  width:100%; height:100%; object-fit:cover; object-position:center 30%;
+  transition:transform .8s cubic-bezier(.16,.84,.44,1);
+}
+.hma-hero-photo:hover img{ transform:scale(1.03); }
 
-  items.forEach(function(el, i){
-    el.style.transitionDelay = (i % 6) * 0.03 + 's';
-    io.observe(el);
-  });
+.hma-stats-bar{
+  margin-top:-38px; position:relative; z-index:5;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border: var(--glass-border);
+  box-shadow: var(--shadow-soft), var(--glass-highlight);
+  border-radius:var(--r-card);
+  display:grid; grid-template-columns:repeat(6,1fr);
+  padding:26px 10px;
+}
+.hma-stat{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  text-align:center; padding:0 8px; position:relative;
+}
+.hma-stat + .hma-stat::before{
+  content:''; position:absolute; left:0; top:8px; bottom:8px; width:1px;
+  background:rgba(0,0,0,0.08);
+}
+.hma-stat .hma-stat-icon{
+  width:34px; height:34px; border-radius:50%;
+  background:rgba(255,255,255,0.7); border:1px solid rgba(0,0,0,0.06);
+  display:flex; align-items:center; justify-content:center;
+}
+.hma-stat .hma-stat-icon svg{ width:16px; height:16px; color:var(--bronze); }
+.hma-stat strong{ font-family:'Cormorant Garamond', serif; font-size:24px; font-weight:600; color:var(--ink); }
+.hma-stat span{ font-size:11px; color:var(--graphite); line-height:1.3; font-weight:400; }
 
-  // Smooth no-op for in-page placeholder links — one delegated listener
-  // instead of one per anchor.
-  page.addEventListener('click', function(e){
-    var link = e.target.closest('a[href="#"]');
-    if(link) e.preventDefault();
-  });
-})();
-</script>
+.hma-hero-section-spacer{ height:70px; }
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>h.m.a Handicrafts — Designed for Every Space, Crafted to Inspire</title>
+@media (max-width:900px){
+  .hma-hero-grid{ grid-template-columns:1fr; }
+  .hma-stats-bar{ grid-template-columns:repeat(3,1fr); row-gap:22px; }
+}
+</style>
+
+<section class="hma-hero-section hma-page">
+  <div class="hma-hero-card">
+    <div class="hma-hero-grid">
+
+      <div class="hma-hero-left">
+        <span class="hma-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+          Our Story
+        </span>
+        <h1>The Art Behind Every Piece.</h1>
+        <p>HMA Handicrafts is a celebration of tradition, skill and the human touch. We blend time-honored techniques with modern design to create timeless pieces that are made to be cherished.</p>
+        <div class="hma-sig-row">
+          <img src="assets/hma-signature.png" alt="Hasmat Ali, Founder signature" decoding="async">
+        </div>
+      </div>
+
+      <div class="hma-hero-right">
+        <div class="hma-hero-photo">
+          <img src="assets/hero-photo.png" alt="Artisan hand-carving a decorative stone piece in the workshop" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hma-stats-bar">
+      <div class="hma-stat">
+        <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg></div>
+        <strong>18+</strong><span>Years of Experience</span>
+      </div>
+      <div class="hma-stat">
+        <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 3-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.2c1.8.4 3.2 2 3.2 3.9 0 1.9-1.4 3.5-3.2 3.9"/><path d="M17.5 14.3c2.3.6 4 2.7 4 5.7"/></svg></div>
+        <strong>20+</strong><span>Global Clients</span>
+      </div>
+      <div class="hma-stat">
+        <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></div>
+        <strong>8+</strong><span>Countries Served</span>
+      </div>
+      <div class="hma-stat">
+        <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6.5 12.5 3 9l5-5 3.5 3.5M17.5 11.5 21 15l-5 5-3.5-3.5"/><path d="M8 16 16 8"/></svg></div>
+        <strong>100%</strong><span>Handcrafted Products</span>
+      </div>
+      <div class="hma-stat">
+        <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z"/></svg></div>
+        <strong>Premium</strong><span>Materials</span>
+      </div>
+      <div class="hma-stat">
+        <div class="hma-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></div>
+        <strong>Worldwide</strong><span>Shipping</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-section-spacer" style="height:70px"></div>
+</section>
+
+<style>
+.hma-page{
+  --ivory:#FAFAFA;
+  --cream:#FFFFFF;
+  --taupe:#D9D9D9;
+  --clay:#4A4A4A;
+  --gold:#1F1F1F;
+  --graphite:#4A4A4A;
+  --ink:#000000;
+
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+
+  --r-card:34px;
+  --r-asym-b:90px 42px 90px 42px;
+
+  font-family:'Inter', sans-serif;
+  font-weight:400;
+}
+.hma-page *{ box-sizing:border-box; }
+.hma-page img{ max-width:100%; display:block; }
+.hma-page h1,.hma-page h2,.hma-page h3,.hma-page h4,.hma-page h5{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:500;
+  color:var(--ink);
+  letter-spacing:0.01em;
+  margin:0;
+}
+
+.hma-eyebrow{
+  display:flex; align-items:center; gap:10px;
+  font-family:'Inter', sans-serif;
+  font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--clay); font-weight:600; margin-bottom:16px;
+}
+.hma-eyebrow::before{
+  content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); flex:0 0 auto;
+}
+
+.hma-phil-section{ padding:0px 40px 90px; position:relative; z-index:1; }
+.hma-phil-grid{
+  max-width:1420px; margin:0 auto;
+  display:grid; grid-template-columns: 0.98fr 1.02fr; gap:32px; align-items:stretch;
+}
+.hma-phil-left h2{
+  font-size:clamp(26px,2.6vw,36px); line-height:1.32; margin-bottom:18px;
+}
+.hma-phil-left > p{
+  font-size:14.5px; color:var(--graphite); line-height:1.75; font-weight:300;
+  max-width:430px; margin-bottom:34px;
+}
+.hma-phil-photo{
+  width:100%; height:300px;
+  border-radius:var(--r-asym-b);
+  overflow:hidden;
+  background-color:#e7e3dc;
+  box-shadow: var(--shadow-soft);
+}
+.hma-phil-photo img{
+  width:100%; height:100%; object-fit:cover; object-position:center;
+  transition:transform .8s cubic-bezier(.16,.84,.44,1);
+}
+.hma-phil-photo:hover img{ transform:scale(1.03); }
+
+.hma-heritage-card{
+  background:var(--cream);
+  border-radius:var(--r-card);
+  padding:40px 40px 30px;
+  box-shadow: var(--shadow-soft);
+  transition:box-shadow .3s ease;
+}
+.hma-heritage-card:hover{ box-shadow:var(--shadow-lift); }
+.hma-timeline{ margin-top:26px; position:relative; padding-left:4px; }
+.hma-timeline-line{
+  position:absolute; left:5px; top:6px; bottom:6px; width:1px;
+  background:linear-gradient(var(--ink), var(--taupe) 80%, transparent);
+}
+.hma-t-item{ display:grid; grid-template-columns:22px 1fr; gap:20px; margin-bottom:26px; }
+.hma-t-item:last-child{ margin-bottom:0; }
+.hma-t-dot{
+  width:10px; height:10px; border-radius:50%; background:var(--gold);
+  margin-left:0px; margin-top:5px; box-shadow:0 0 0 5px rgba(0,0,0,0.06);
+}
+.hma-t-item .yr{ font-family:'Inter'; font-size:12px; font-weight:600; letter-spacing:0.04em; color:var(--ink); display:block; margin-bottom:4px; }
+.hma-t-item p{ font-size:13.5px; color:var(--graphite); line-height:1.6; font-weight:300; max-width:320px; }
+
+@media (max-width:900px){
+  .hma-phil-grid{ grid-template-columns:1fr; }
+}
+</style>
+
+<section class="hma-phil-section hma-page">
+  <div class="hma-phil-grid">
+
+    <div class="hma-phil-left">
+      <div class="hma-eyebrow">Our Philosophy</div>
+      <h2>We don't manufacture objects. We create pieces people will keep for generations.</h2>
+      <p>We believe true luxury lies in authenticity, patience and purpose. Every detail is thoughtfully crafted to bring beauty into everyday living.</p>
+      <div class="hma-phil-photo">
+        <img src="assets/philosophy-photo.png" alt="Handcrafted ceramic vase with dried flowers and bowl on a marble tray" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="hma-heritage-card">
+      <div class="hma-eyebrow">Our Heritage</div>
+
+      <div class="hma-timeline">
+        <div class="hma-timeline-line"></div>
+
+        <div class="hma-t-item">
+          <div class="hma-t-dot"></div>
+          <div><span class="yr">2008</span><p>HMA Handicrafts was founded with a passion for handcrafted design.</p></div>
+        </div>
+        <div class="hma-t-item">
+          <div class="hma-t-dot"></div>
+          <div><span class="yr">2012</span><p>Our first international client believed in our craftsmanship.</p></div>
+        </div>
+        <div class="hma-t-item">
+          <div class="hma-t-dot"></div>
+          <div><span class="yr">2016</span><p>Expanded our collection and strengthened artisan community.</p></div>
+        </div>
+        <div class="hma-t-item">
+          <div class="hma-t-dot"></div>
+          <div><span class="yr">2022</span><p>Became a trusted name in global handcrafted exports.</p></div>
+        </div>
+        <div class="hma-t-item">
+          <div class="hma-t-dot"></div>
+          <div><span class="yr">Today</span><p>Continuing our journey of creating timeless pieces worldwide.</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.hma-page{
+  --ivory:#FAFAFA;
+  --cream:#FFFFFF;
+  --sand-deep:#EAEAEA;
+  --clay:#4A4A4A;
+  --bronze:#000000;
+  --gold:#1F1F1F;
+  --graphite:#4A4A4A;
+  --ink:#000000;
+
+  --glass-blur:14px;
+  --glass-sat:140%;
+  --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+  --glass-border:1px solid rgba(255,255,255,0.7);
+  --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+
+  --r-card:34px;
+  --r-tile:30px;
+
+  font-family:'Inter', sans-serif;
+  font-weight:400;
+}
+.hma-page *{ box-sizing:border-box; }
+.hma-page img{ max-width:100%; display:block; }
+.hma-page a{ color:inherit; text-decoration:none; }
+
+.hma-eyebrow{
+  display:flex; align-items:center; gap:10px;
+  font-family:'Inter', sans-serif;
+  font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--clay); font-weight:600; margin-bottom:16px;
+}
+.hma-eyebrow::before{
+  content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); flex:0 0 auto;
+}
+
+.hma-materials-section{ padding:0 40px 30px; position:relative; z-index:1; }
+.hma-materials-inner{ max-width:1420px; margin:0 auto; display:flex; flex-direction:column; gap:24px; }
+
+.hma-row-card{
+  background:var(--cream);
+  border-radius:var(--r-card);
+  padding:30px 34px 34px;
+  box-shadow: var(--shadow-soft);
+}
+.hma-row-title{ margin-bottom:22px; }
+
+.hma-materials-grid{
+  display:grid; grid-template-columns:repeat(7,1fr) 1.05fr; gap:16px; align-items:stretch;
+}
+.hma-material{ text-align:left; }
+.hma-material .swatch{
+  width:100%; aspect-ratio:1/1; border-radius:var(--r-tile); margin-bottom:14px;
+  overflow:hidden; background:var(--sand-deep);
+  box-shadow:var(--shadow-soft);
+}
+.hma-material .swatch img{
+  width:100%; height:100%; object-fit:cover; object-position:center;
+  display:block; transition:transform .6s cubic-bezier(.16,.84,.44,1);
+}
+.hma-material:hover .swatch img{ transform:scale(1.06); }
+.hma-material h5{ font-family:'Inter'; font-size:13.5px; font-weight:600; color:var(--ink); margin-bottom:5px; }
+.hma-material .desc-row{ display:flex; align-items:flex-end; justify-content:space-between; gap:6px; }
+.hma-material p{ font-size:11.5px; color:var(--graphite); line-height:1.4; font-weight:300; }
+.hma-material .arrow{
+  flex:0 0 auto; width:14px; height:14px; color:var(--bronze);
+  transform:translateY(-1px); transition:transform .25s ease;
+}
+.hma-material:hover .arrow{ transform:translate(3px,-3px); }
+.hma-material:hover h5{ text-decoration:underline; text-underline-offset:3px; }
+
+.hma-viewall{
+  border:var(--glass-border);
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border-radius:var(--r-tile);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+  padding:20px 14px; text-align:center; min-height:100%;
+  box-shadow:var(--shadow-soft), var(--glass-highlight);
+  transition: transform .3s cubic-bezier(.16,.84,.44,1);
+}
+.hma-viewall:hover{ transform:translateY(-3px); }
+.hma-viewall .grid-icon{
+  display:grid; grid-template-columns:repeat(2,10px); grid-template-rows:repeat(2,10px); gap:4px;
+}
+.hma-viewall .grid-icon span{ background:var(--bronze); border-radius:2px; display:block; }
+.hma-viewall strong{ font-family:'Inter'; font-size:13px; font-weight:600; color:var(--ink); line-height:1.3; }
+.hma-viewall .arrow{ width:13px; height:13px; color:var(--bronze); transition:transform .3s ease; }
+.hma-viewall:hover .arrow{ transform:translateX(3px); }
+.hma-viewall .label-row{ display:flex; align-items:center; gap:6px; }
+
+@media (max-width:1200px){
+  .hma-materials-grid{ grid-template-columns:repeat(4,1fr); }
+}
+@media (max-width:640px){
+  .hma-materials-grid{ grid-template-columns:repeat(2,1fr); }
+}
+</style>
+
+<section class="hma-materials-section hma-page">
+  <div class="hma-materials-inner">
+
+    <div class="hma-row-card">
+      <div class="hma-row-title hma-eyebrow">Materials We Honor</div>
+      <div class="hma-materials-grid">
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/materials/brass.png" alt="Brass" loading="lazy" decoding="async"></div>
+          <h5>Brass</h5>
+          <div class="desc-row"><p>Durable, elegant and made to last.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/materials/marble.png" alt="Marble" loading="lazy" decoding="async"></div>
+          <h5>Marble</h5>
+          <div class="desc-row"><p>Naturally unique, forever timeless.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/materials/wood.png" alt="Wood" loading="lazy" decoding="async"></div>
+          <h5>Wood</h5>
+          <div class="desc-row"><p>Sourced responsibly, crafted beautifully.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/materials/bone-inlay.png" alt="Bone Inlay" loading="lazy" decoding="async"></div>
+          <h5>Bone Inlay</h5>
+          <div class="desc-row"><p>Intricate artistry passed down.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/materials/mother-of-pearl.png" alt="Mother of Pearl" loading="lazy" decoding="async"></div>
+          <h5>Mother of Pearl</h5>
+          <div class="desc-row"><p>Natural beauty in every piece.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/materials/leather.png" alt="Leather" loading="lazy" decoding="async"></div>
+          <h5>Leather</h5>
+          <div class="desc-row"><p>Premium quality, soft and strong.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/materials/stone.png" alt="Stone" loading="lazy" decoding="async"></div>
+          <h5>Stone</h5>
+          <div class="desc-row"><p>Raw beauty, refined by hand.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-viewall">
+          <span class="grid-icon"><span></span><span></span><span></span><span></span></span>
+          <span class="label-row"><strong>View All<br>Materials</strong></span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hma-row-card">
+      <div class="hma-row-title hma-eyebrow">Available Finishes</div>
+      <div class="hma-materials-grid">
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/finishes/antique-brass.png" alt="Antique Brass" loading="lazy" decoding="async"></div>
+          <h5>Antique Brass</h5>
+          <div class="desc-row"><p>Classic warmth with vintage appeal.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/finishes/polished-brass.png" alt="Polished Brass" loading="lazy" decoding="async"></div>
+          <h5>Polished Brass</h5>
+          <div class="desc-row"><p>High shine finish for a modern look.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/finishes/brushed-brass.png" alt="Brushed Brass" loading="lazy" decoding="async"></div>
+          <h5>Brushed Brass</h5>
+          <div class="desc-row"><p>Subtle texture with sophisticated tone.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/finishes/matte-black.png" alt="Matte Black" loading="lazy" decoding="async"></div>
+          <h5>Matte Black</h5>
+          <div class="desc-row"><p>Bold, minimal and everlasting.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/finishes/antique-silver.png" alt="Antique Silver" loading="lazy" decoding="async"></div>
+          <h5>Antique Silver</h5>
+          <div class="desc-row"><p>Timeless silver with old-world charm.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/finishes/polished-silver.png" alt="Polished Silver" loading="lazy" decoding="async"></div>
+          <h5>Polished Silver</h5>
+          <div class="desc-row"><p>Bright, refined and elegantly polished.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-material">
+          <div class="swatch"><img src="assets/finishes/natural-stone.png" alt="Natural Stone" loading="lazy" decoding="async"></div>
+          <h5>Natural Stone</h5>
+          <div class="desc-row"><p>Organic finish with unique character.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </div>
+        </a>
+        <a href="#" class="hma-viewall">
+          <span class="grid-icon"><span></span><span></span><span></span><span></span></span>
+          <span class="label-row"><strong>View All<br>Finishes</strong></span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"></noscript>
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
 <style>
-:root{
-    /* ===== h.m.a Brand Guide — tokens copied 1:1 from page-1 (master reference) ===== */
-    --ivory:#FAFAFA;
-    --cream:#FFFFFF;
-    --sand:#F5F5F7;
-    --sand-deep:#EAEAEA;
-    --taupe:#D9D9D9;
-    --clay:#4A4A4A;
-    --bronze:#000000;
-    --gold:#1F1F1F;
-    --gold-soft:#EAEAEA;
-    --charcoal:#1F1F1F;
-    --graphite:#4A4A4A;
-    --ink:#000000;
-
-    --glass-blur:14px;
-    --glass-sat:140%;
-    --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
-    --glass-border:1px solid rgba(255,255,255,0.7);
-    --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
-    --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
-    --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
-
-    --bg:var(--ivory);
-    --card:var(--cream);
-    --ink-soft:var(--graphite);
-    --line:var(--sand-deep);
-    --line-soft:#F1EFEA;
-    --black:var(--ink);
-    --shadow-sm:0 2px 10px rgba(20,18,14,0.05);
-    --shadow-md:var(--shadow-soft);
-    --shadow-lg:var(--shadow-lift);
-
-    /* radius vocabulary — identical set to the brand guide's components */
-    --r-pill:100px;
-    --r-tile:30px;
-    --r-card:34px;
-    --r-app:38px;
-    --r-hero:60px;
-    --r-asym-a:42px 90px 42px 90px;
-    --r-asym-b:90px 42px 90px 42px;
-    --r-asym-v:44px 90px 44px 90px;
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-
-  html{scroll-behavior:smooth;}
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
-  }
-
-  body{
-    font-family:'Inter', sans-serif;
-    font-weight:400;
-    background:
-      radial-gradient(ellipse 1200px 800px at 15% -5%, #FFFFFF 0%, transparent 55%),
-      radial-gradient(ellipse 1000px 900px at 100% 20%, #F2F2F4 0%, transparent 50%),
-      radial-gradient(ellipse 1200px 900px at 0% 80%, #EDEDED 0%, transparent 55%),
-      linear-gradient(180deg, var(--ivory) 0%, #F0F0F0 50%, var(--ivory) 100%);
-    background-attachment:scroll;
-    color:var(--charcoal);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    position:relative;
-    overflow-x:hidden;
-  }
-
-  h1,h2,h3,h4,h5{
-    font-family:'Cormorant Garamond', serif;
-    font-weight:500;
-    letter-spacing:0.01em;
-    color:var(--ink);
-  }
-
-  img{display:block;max-width:100%;}
-  a{color:inherit;text-decoration:none;}
-  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
-  ul{list-style:none;}
-
-  .wrap{max-width:1500px;margin:0 auto;padding:0 40px;position:relative;z-index:1;}
-
-  /* ---------- decorative blobs — identical construction to page-1 ---------- */
-  .blob{position:absolute;border-radius:50%;filter:blur(60px);z-index:0;pointer-events:none;will-change:transform;transform:translateZ(0);}
-  .blob-a{width:520px;height:520px;top:-140px;left:-160px;background:radial-gradient(circle at 35% 35%, #F0F0F0, transparent 70%);animation:float1 22s ease-in-out infinite;}
-  .blob-b{width:460px;height:460px;bottom:-160px;right:-140px;background:radial-gradient(circle at 60% 60%, #E5E5E5, transparent 70%);animation:float2 26s ease-in-out infinite;}
-  .blob-c{width:340px;height:340px;top:30%;right:8%;background:radial-gradient(circle at 50% 50%, #D9D9D9, transparent 70%);animation:float1 18s ease-in-out infinite reverse;opacity:0.6;}
-  @keyframes float1{0%,100%{transform:translate3d(0,0,0);}50%{transform:translate3d(30px,-24px,0);}}
-  @keyframes float2{0%,100%{transform:translate3d(0,0,0);}50%{transform:translate3d(-24px,26px,0);}}
-
-  /* ---------- reveal — transform+opacity only, identical to page-1 ---------- */
-  .reveal{
-    opacity:0;
-    transform:translateY(36px) translateZ(0);
-    transition:opacity .8s cubic-bezier(.16,.84,.44,1), transform .8s cubic-bezier(.16,.84,.44,1);
-    will-change:opacity, transform;
-  }
-  .reveal.in{opacity:1;transform:translateY(0) translateZ(0);will-change:auto;}
-
-  /* ---------- glass base — identical to page-1's .glass ---------- */
-  .glass{
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border:var(--glass-border);
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-    position:relative;
-  }
-  .glass:hover{box-shadow:var(--shadow-lift), var(--glass-highlight);}
-
-  /* ---------- eyebrow — identical spec to page-1's .eyebrow ---------- */
-  .eyebrow{
-    font-family:'Inter', sans-serif;
-    font-size:11px;
-    letter-spacing:0.28em;
-    text-transform:uppercase;
-    color:var(--clay);
-    font-weight:600;
-    display:flex;align-items:center;gap:10px;
-  }
-  .eyebrow::before{
-    content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;
-  }
-
-  /* ============ HEADER — floating glass pill, identical construction to page-1 ============ */
-  header{
-    position:sticky;
-    top:16px;
-    z-index:100;
-    padding:0;
-  }
-  .header-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-    padding:14px 30px;
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border:var(--glass-border);
-    border-radius:var(--r-pill);
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-    transition:box-shadow .3s ease;
-  }
-  header.is-scrolled .header-inner{box-shadow:var(--shadow-lift), var(--glass-highlight);}
-
-  .logo{display:flex;align-items:center;flex-shrink:0;}
-  .logo img{height:40px;width:auto;}
-
-  nav.main-nav{display:flex;align-items:center;gap:26px;flex-shrink:0;}
-  nav.main-nav a{
-    font-size:12.5px;
-    font-weight:500;
-    letter-spacing:0.05em;
-    color:var(--graphite);
-    white-space:nowrap;
-    position:relative;
-    padding-bottom:6px;
-    transition:color .3s ease;
-  }
-  nav.main-nav a:hover{color:var(--bronze);}
-  nav.main-nav a.active{color:var(--bronze);}
-  nav.main-nav a.active::after{
-    content:"";position:absolute;left:50%;bottom:-2px;width:4px;height:4px;
-    border-radius:50%;background:var(--gold);transform:translateX(-50%);
-  }
-
-  .header-actions{display:flex;align-items:center;gap:18px;flex-shrink:0;}
-  .icon-btn{display:flex;align-items:center;justify-content:center;width:22px;height:22px;color:var(--ink);position:relative;transition:opacity .25s ease;}
-  .icon-btn:hover{opacity:0.6;}
-  .icon-btn svg{width:20px;height:20px;}
-
-  .cart-wrap{position:relative;}
-  .cart-badge{
-    position:absolute;top:-9px;right:-10px;background:var(--bronze);color:#fff;
-    font-size:10px;font-weight:500;width:16px;height:16px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;line-height:1;
-  }
-
-  .cta-btn{
-    display:inline-flex;align-items:center;gap:8px;
-    background:linear-gradient(160deg, #2A2A2A, #000000);
-    color:var(--cream);
-    padding:12px 20px;
-    border-radius:var(--r-pill);
-    font-size:13.5px;font-weight:500;letter-spacing:0.02em;white-space:nowrap;
-    box-shadow:var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.12);
-    transition:transform .3s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
-  }
-  .cta-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift), inset 0 1px 0 rgba(255,255,255,0.12);}
-  .cta-btn svg{width:14px;height:14px;transition:transform .3s ease;}
-  .cta-btn:hover svg{transform:translateX(3px);}
-
-  .btn-outline{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border:var(--glass-border);
-    color:var(--ink);
-    padding:12px 20px;border-radius:var(--r-pill);
-    font-size:13.5px;font-weight:500;
-    transition:transform .3s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-  }
-  .btn-outline:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift), var(--glass-highlight);}
-  .btn-outline svg{width:14px;height:14px;color:var(--gold);}
-
-  /* ============ PAGE SHELL ============ */
-  main{padding:0 0 90px;}
-
-  /* ============ HERO ============ */
-  #hero{
-    display:grid; grid-template-columns:0.78fr 1fr; align-items:center; gap:40px;
-    padding:70px 0 60px;
-    position:relative;
-  }
-  .hero-copy{max-width:560px;}
-  .hero-copy .eyebrow{margin-bottom:22px;}
-  .hero-copy h1{
-    font-family:'Cormorant Garamond', serif;
-    font-size:clamp(40px, 5.6vw, 64px);
-    line-height:1.1;
-    font-weight:500;
-    letter-spacing:0.01em;
-    color:var(--ink);
-    max-width:12ch;
-    margin-bottom:24px;
-  }
-  .hero-copy p{
-    font-size:15.5px;line-height:1.75;color:var(--graphite);font-weight:300;max-width:440px;margin-bottom:34px;
-  }
-  .hero-actions{display:flex;align-items:center;gap:12px;}
-
-  .hero-visual{
-    position:relative;
-    border-radius:var(--r-asym-a);
-    overflow:hidden;
-    aspect-ratio:620/540;
-    box-shadow:var(--shadow-lift);
-  }
-  .hero-visual img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,.84,.44,1);}
-  .hero-visual:hover img{transform:scale(1.03);}
-
-  /* ============ COLLECTION GRID ============ */
-  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px;}
-  .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:22px;margin-bottom:22px;}
-
-  .tile{
-    position:relative;
-    border-radius:var(--r-card);
-    overflow:hidden;
-    display:flex;flex-direction:column;justify-content:flex-end;
-    padding:30px;color:#fff;
-    min-height:300px;
-    isolation:isolate;
-    box-shadow:var(--shadow-soft);
-    transition:transform .4s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
-  }
-  .tile:hover{transform:translateY(-8px);box-shadow:var(--shadow-lift);}
-  .tile.tall{min-height:420px;}
-  .tile img.bg{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-    transition:transform .7s cubic-bezier(.16,.84,.44,1);
-  }
-  .tile:hover img.bg{transform:scale(1.06);}
-  .tile.css-bg{background-size:cover;background-position:center;}
-  .tile::before{
-    content:'';position:absolute;inset:0;z-index:-1;
-    background:linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.62) 100%);
-  }
-  .tile .num{
-    position:absolute;top:26px;left:30px;
-    font-family:'Cormorant Garamond', serif;font-size:14px;letter-spacing:0.1em;
-    color:rgba(255,255,255,0.9);
-    background:rgba(255,255,255,0.14);
-    border:1px solid rgba(255,255,255,0.35);
-    backdrop-filter:blur(6px);
-    width:34px;height:34px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .tile h3{color:#fff;font-family:'Cormorant Garamond', serif;font-size:26px;font-weight:500;margin-bottom:8px;}
-  .tile.tall h3{font-size:32px;}
-  .tile p{font-size:13px;color:rgba(255,255,255,0.82);font-weight:300;max-width:34ch;line-height:1.55;margin-bottom:14px;}
-  .tile .explore{
-    display:inline-flex;align-items:center;gap:7px;
-    font-size:12px;font-weight:500;letter-spacing:0.05em;color:#fff;
-  }
-  .tile .explore svg{width:12px;height:12px;transition:transform .3s ease;}
-  .tile:hover .explore svg{transform:translateX(4px);}
-
-  /* ============ CURATED WITH PURPOSE ============ */
-  #curated{
-    margin-top:26px;
-    border-radius:var(--r-hero);
-    background:linear-gradient(120deg, #F2F1EF 0%, #EAE8E4 55%, #F5F4F2 100%);
-    display:grid;grid-template-columns:1.15fr 0.85fr;
-    align-items:center;gap:20px;
-    padding:60px 60px;
-    overflow:hidden;
-    position:relative;
-    box-shadow:var(--shadow-soft);
-  }
-  .curated-copy .eyebrow{margin-bottom:22px;}
-  .curated-copy h2{
-    font-family:'Cormorant Garamond', serif;
-    font-size:clamp(28px, 2.8vw, 40px);
-    line-height:1.3;font-weight:500;color:var(--ink);
-    max-width:20ch;margin-bottom:34px;
-  }
-  .curated-sig{height:34px;width:auto;opacity:0.85;filter:brightness(0);margin-top:6px;}
-  .curated-icons-row{display:flex;gap:18px;margin-bottom:38px;flex-wrap:wrap;}
-  .icon-item{display:flex;flex-direction:column;align-items:center;gap:12px;width:100px;text-align:center;}
-  .icon-circle{
-    width:56px;height:56px;border-radius:50%;
-    background:var(--glass-bg);
-    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border:var(--glass-border);
-    box-shadow:var(--shadow-soft), var(--glass-highlight);
-    display:flex;align-items:center;justify-content:center;
-    transition:box-shadow .3s ease, transform .3s cubic-bezier(.16,.84,.44,1);
-  }
-  .icon-item:hover .icon-circle{box-shadow:var(--shadow-lift), var(--glass-highlight);transform:translateY(-4px);}
-  .icon-circle svg{width:22px;height:22px;color:var(--bronze);}
-  .icon-item span{font-size:11.5px;color:var(--graphite);line-height:1.35;font-weight:500;}
-
-  .curated-visual{
-    position:relative;border-radius:var(--r-asym-b);overflow:hidden;aspect-ratio:480/420;
-    box-shadow:var(--shadow-lift);
-  }
-  .curated-visual img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,.84,.44,1);}
-  .curated-visual:hover img{transform:scale(1.03);}
-
-  /* ============ RESPONSIVE ============ */
-  @media (max-width:1200px){
-    .wrap{padding:0 28px;}
-    nav.main-nav{gap:22px;}
-  }
-
-  @media (max-width:1024px){
-    nav.main-nav{display:none;}
-    #hero{grid-template-columns:1fr;}
-    .hero-visual{order:-1;aspect-ratio:auto;height:420px;}
-    .grid-2, .grid-3{grid-template-columns:1fr;}
-    #curated{grid-template-columns:1fr;padding:44px 32px;}
-    .curated-visual{order:-1;}
-  }
-
-  @media (max-width:900px){
-    :root{--glass-blur:10px;}
-  }
-
-  @media (max-width:640px){
-    .wrap{padding:0 20px;}
-    header{top:10px;}
-    .header-inner{padding:12px 18px;flex-wrap:wrap;border-radius:28px;}
-    .cta-btn span.label{display:none;}
-    .hero-actions{flex-wrap:wrap;}
-    #curated{border-radius:36px;padding:36px 22px;}
-  }
-
+.hma-page{
+  --clay:#4A4A4A;
+  --bronze:#000000;
+  --graphite:#4A4A4A;
+  --ink:#000000;
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --r-asym-v:44px 90px 44px 90px;
+  font-family:'Inter', sans-serif;
+  font-weight:400;
+}
+.hma-page *{ box-sizing:border-box; }
+.hma-page img{ max-width:100%; display:block; }
+.hma-quote-section{ padding:60px 40px 100px; position:relative; z-index:1; }
+.hma-quote-card{
+  max-width:1420px; margin:0 auto;
+  background:linear-gradient(160deg,#F5F4F1,#EDEBE6);
+  border-radius:var(--r-asym-v);
+  padding:64px 60px;
+  display:grid; grid-template-columns:1.5fr 1fr; gap:50px; align-items:center;
+  box-shadow:var(--shadow-soft);
+}
+.hma-quote-mark{ width:34px; height:26px; color:var(--bronze); margin-bottom:26px; opacity:0.85; }
+.hma-quote-card blockquote{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:400;
+  font-size:clamp(24px,2.4vw,34px); line-height:1.4; color:var(--ink); margin:0 0 22px;
+}
+.hma-quote-caption{ font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--clay); font-weight:600; }
+.hma-quote-right{
+  border-left:1px solid rgba(0,0,0,0.1); padding-left:44px;
+  display:flex; flex-direction:column; gap:14px;
+}
+.hma-quote-right img{ height:44px; width:auto; margin-bottom:2px; }
+.hma-quote-right .role{ font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink); font-weight:600; }
+.hma-quote-right p{ font-size:13.5px; color:var(--graphite); line-height:1.7; font-weight:300; }
+@media (max-width:900px){
+  .hma-quote-card{ grid-template-columns:1fr; padding:44px 32px; }
+  .hma-quote-right{ border-left:none; padding-left:0; border-top:1px solid rgba(0,0,0,0.1); padding-top:24px; }
+}
 </style>
-</head>
-<body>
+<section class="hma-quote-section hma-page">
+  <div class="hma-quote-card">
+    <div>
+      <svg class="hma-quote-mark" viewBox="0 0 44 34" fill="none"><path d="M0 34V19.5C0 8.5 6.8 1.6 17 0l1.8 5.4C11.6 7.4 8 12 8 18h9v16H0Zm24 0V19.5C24 8.5 30.8 1.6 41 0l1.8 5.4C35.6 7.4 32 12 32 18h9v16H24Z" fill="currentColor"/></svg>
+      <blockquote>Luxury isn't created by machines. It is created by people who care.</blockquote>
+      <p class="hma-quote-caption">Because the human touch can never be replaced.</p>
+    </div>
+    <div class="hma-quote-right">
+      <img src="assets/hma-signature.png" alt="Hasmat Ali signature" loading="lazy" decoding="async">
+      <span class="role">Founder, HMA Handicrafts</span>
+      <p>Thank you to our artisans, clients and partners who are part of this journey. Together, we keep craftsmanship alive.</p>
+    </div>
+  </div>
+</section>
+
+  <style>
+:root{
+  --ivory:#FAFAFA;
+  --cream:#FFFFFF;
+  --clay:#4A4A4A;
+  --gold:#1F1F1F;
+  --charcoal:#1F1F1F;
+  --graphite:#4A4A4A;
+  --ink:#000000;
+
+  --glass-blur:14px;
+  --glass-sat:140%;
+  --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+  --glass-border:1px solid rgba(255,255,255,0.7);
+  --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+
+  --r-pill:100px;
+  --r-asym-a:42px 90px 42px 90px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{ font-family:'Inter', sans-serif; background:var(--ivory); }
+
+a{ color:inherit; text-decoration:none; }
+
+.wrap{
+  max-width:1500px;
+  margin:0 auto;
+  padding:0 40px;
+}
+
+.eyebrow{
+  font-family:'Inter', sans-serif;
+  font-size:11px;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--clay);
+  font-weight:600;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;
+}
+
+#hero{
+  display:grid; grid-template-columns:0.78fr 1fr; align-items:center; gap:40px;
+  padding:70px 0 60px;
+  position:relative;
+}
+.hero-copy{max-width:560px;}
+.hero-copy .eyebrow{margin-bottom:22px;}
+.hero-copy h1{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(40px, 5.6vw, 64px);
+  line-height:1.1;
+  font-weight:500;
+  letter-spacing:0.01em;
+  color:var(--ink);
+  max-width:12ch;
+  margin-bottom:24px;
+}
+.hero-copy p{
+  font-size:15.5px;line-height:1.75;color:var(--graphite);font-weight:300;max-width:440px;margin-bottom:34px;
+}
+.hero-actions{display:flex;align-items:center;gap:12px;}
+
+.hero-visual{
+  position:relative;
+  border-radius:var(--r-asym-a);
+  overflow:hidden;
+  aspect-ratio:620/540;
+  box-shadow:var(--shadow-lift);
+}
+.hero-visual img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,.84,.44,1);}
+.hero-visual:hover img{transform:scale(1.03);}
+
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(160deg, #2A2A2A, #000000);
+  color:var(--cream);
+  padding:12px 20px;
+  border-radius:var(--r-pill);
+  font-size:13.5px;font-weight:500;letter-spacing:0.02em;white-space:nowrap;
+  box-shadow:var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.12);
+  transition:transform .3s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift), inset 0 1px 0 rgba(255,255,255,0.12);}
+.cta-btn svg{width:14px;height:14px;transition:transform .3s ease;}
+.cta-btn:hover svg{transform:translateX(3px);}
+
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border:var(--glass-border);
+  color:var(--ink);
+  padding:12px 20px;border-radius:var(--r-pill);
+  font-size:13.5px;font-weight:500;
+  transition:transform .3s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
+  box-shadow:var(--shadow-soft), var(--glass-highlight);
+}
+.btn-outline:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift), var(--glass-highlight);}
+.btn-outline svg{width:14px;height:14px;color:var(--gold);}
+
+@media (max-width:1024px){
+  #hero{grid-template-columns:1fr;}
+  .hero-visual{order:-1;aspect-ratio:auto;height:420px;}
+}
+</style>
+
 <div class="wrap">
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        <img src="assets/logo.png" alt="h.m.a Handicrafts">
-      </div>
-
-      <nav class="main-nav">
-        <a href="#" class="active">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Products</a>
-        <a href="#">Custom Orders</a>
-        <a href="#">Why Us</a>
-        <a href="#">Catalog</a>
-        <a href="#">Blogs</a>
-        <a href="#">Contact Us</a>
-      </nav>
-
-      <div class="header-actions">
-        <button class="icon-btn" aria-label="Search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <button class="icon-btn" aria-label="Account">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </button>
-        <button class="icon-btn cart-wrap" aria-label="Cart">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-badge">2</span>
-        </button>
+  <section id="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">Our Collections</span>
+      <h1>Designed for Every Space, Crafted to Inspire.</h1>
+      <p>Explore our wide range of handcrafted collections, designed to bring beauty, function and meaning to every part of your space.</p>
+      <div class="hero-actions">
         <a href="#" class="cta-btn">
-          <span class="label">Get in Touch</span>
+          Explore All Collections
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
+        <a href="#" class="btn-outline">
+          View Catalog
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+        </a>
       </div>
     </div>
-  </header>
-
-  <main>
-
-    <!-- HERO -->
-    <section id="hero">
-      <div class="blob blob-a"></div>
-      <div class="blob blob-c"></div>
-      <div class="hero-copy reveal">
-        <span class="eyebrow">Our Collections</span>
-        <h1>Designed for Every Space, Crafted to Inspire.</h1>
-        <p>Explore our wide range of handcrafted collections, designed to bring beauty, function and meaning to every part of your space.</p>
-        <div class="hero-actions">
-          <a href="#" class="cta-btn">
-            Explore All Collections
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a href="#" class="btn-outline">
-            View Catalog
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="hero-visual reveal">
-        <img src="https://images.unsplash.com/photo-1597696929736-6d13bed8e6a8?auto=format&fit=crop&w=1200&q=80" alt="Ceramic vase and bowl on a marble tray">
-      </div>
-    </section>
-
-    <!-- ROW 1: Home Decor / Chess Collection -->
-    <div class="grid-2">
-      <a href="#" class="tile tall reveal">
-        <span class="num">01</span>
-        <img class="bg" src="https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?auto=format&fit=crop&w=1200&q=80" alt="Home Decor — ceramic vases">
-        <h3>Home Decor</h3>
-        <p>Timeless pieces that elevate and transform your space.</p>
-        <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a href="#" class="tile tall reveal">
-        <span class="num">02</span>
-        <img class="bg" src="https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&w=1200&q=80" alt="Chess Collection — handcrafted chess set">
-        <h3>Chess Collection</h3>
-        <p>Handcrafted elegance for strategic minds.</p>
-        <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1597696929736-6d13bed8e6a8?auto=format&fit=crop&w=1200&q=80" alt="Ceramic vase and bowl on a marble tray">
     </div>
-
-    <!-- ROW 2: Cabinet Hardware / Kitchenware / Bar Accessories -->
-    <div class="grid-3">
-      <a href="#" class="tile css-bg reveal" style="background:linear-gradient(155deg,#D9D9D9,#8A8A8A 60%,#5A5A5A);">
-        <span class="num">03</span>
-        <h3>Cabinet Hardware</h3>
-        <p>Refined details that complete your furniture beautifully.</p>
-        <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a href="#" class="tile reveal">
-        <span class="num">04</span>
-        <img class="bg" src="https://images.unsplash.com/photo-1492552296703-4ec0a2fb3715?auto=format&fit=crop&w=1200&q=80" alt="Kitchenware — marble mortar and pestle">
-        <h3>Kitchenware</h3>
-        <p>Functional luxury for the heart of your home.</p>
-        <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a href="#" class="tile css-bg reveal" style="background:linear-gradient(155deg,#2E2E2E,#131313 65%,#000000);">
-        <span class="num">05</span>
-        <h3>Bar Accessories</h3>
-        <p>Crafted for those who appreciate fine moments.</p>
-        <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-
-    <!-- ROW 3: Office Decor / Bathroom Accessories / Decorative Objects -->
-    <div class="grid-3">
-      <a href="#" class="tile css-bg reveal" style="background:linear-gradient(155deg,#3A3A3A,#141414 65%,#000000);">
-        <span class="num">06</span>
-        <h3>Office Decor</h3>
-        <p>Sophisticated accents that inspire focus and creativity.</p>
-        <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a href="#" class="tile css-bg reveal" style="background:linear-gradient(155deg,#F0F0F0,#D5D3CE 60%,#B8B5AE);">
-        <span class="num">07</span>
-        <h3 style="color:var(--ink);">Bathroom Accessories</h3>
-        <p style="color:rgba(0,0,0,0.6);">Elegant essentials for a luxurious experience.</p>
-        <span class="explore" style="color:var(--ink);">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a href="#" class="tile css-bg reveal" style="background:linear-gradient(155deg,#E6E4E0,#C9C6BF 60%,#A9A59C);">
-        <span class="num">08</span>
-        <h3 style="color:var(--ink);">Decorative Objects</h3>
-        <p style="color:rgba(0,0,0,0.6);">Unique pieces that tell stories and spark conversations.</p>
-        <span class="explore" style="color:var(--ink);">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-
-    <!-- CURATED WITH PURPOSE -->
-    <section id="curated" class="reveal">
-      <div class="curated-copy">
-        <span class="eyebrow">Curated With Purpose</span>
-        <h2>Every collection is a reflection of our passion for craftsmanship and timeless design.</h2>
-
-        <div class="curated-icons-row">
-          <div class="icon-item">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 21c-2-3-2-7 1-10 2-2 2-4 1-6 3 1 5 3 5 6 0 2-1 3-1 5 2-1 3-3 3-5 2 2 3 5 1 8-1 2-3 2-5 2s-4 0-5-0Z"/></svg>
-            </div>
-            <span>Handcrafted<br>with Care</span>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12l3 5-9 13L3 8Z"/><path d="M3 8h18M9 3l3 5 3-5M12 8l-2 13M12 8l2 13"/></svg>
-            </div>
-            <span>Premium<br>Materials</span>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
-            </div>
-            <span>Timeless<br>Design</span>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7 9 18l-5-5"/><path d="M9 18l1.5-1.5M15 5l2 2"/></svg>
-            </div>
-            <span>Made to<br>Last</span>
-          </div>
-        </div>
-
-        <img class="curated-sig" src="assets/signature.png" alt="h.m.a Handicrafts signature">
-      </div>
-      <div class="curated-visual">
-        <img src="https://images.unsplash.com/photo-1643569556871-91ec60671ed7?auto=format&fit=crop&w=1000&q=80" alt="Ceramic vase and bowl">
-      </div>
-    </section>
-
-  </main>
+  </section>
 </div>
 
-<script>
-// h.m.a Handicrafts — collections page interactions
+  <style>
+:root{
+  --ivory:#FAFAFA;
+  --card:#FFFFFF;
+  --gold:#1F1F1F;
+  --ink:#000000;
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+  --r-card:34px;
+}
 
-document.addEventListener('DOMContentLoaded', function () {
-  var header = document.querySelector('header');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{ font-family:'Inter', sans-serif; background:var(--ivory); }
+a{ color:inherit; text-decoration:none; }
+img{ display:block; max-width:100%; }
 
-  // Add a subtle shadow to the header once the page scrolls
-  function handleScroll() {
-    if (window.scrollY > 8) {
-      header.classList.add('is-scrolled');
-    } else {
-      header.classList.remove('is-scrolled');
-    }
-  }
+.wrap{
+  max-width:1500px;
+  margin:0 auto;
+  padding:0 40px;
+}
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
+/* ============ COLLECTION GRID ============ */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px;}
+.grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:22px;margin-bottom:22px;}
 
-  // Reveal-on-scroll: fade + rise elements into view as the user scrolls
-  var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && revealEls.length) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+.tile{
+  position:relative;
+  border-radius:var(--r-card);
+  overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:30px;color:#fff;
+  min-height:300px;
+  isolation:isolate;
+  box-shadow:var(--shadow-soft);
+  transition:transform .4s cubic-bezier(.16,.84,.44,1), box-shadow .3s ease;
+}
+.tile:hover{transform:translateY(-8px);box-shadow:var(--shadow-lift);}
+.tile.tall{min-height:420px;}
+.tile img.bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  transition:transform .7s cubic-bezier(.16,.84,.44,1);
+}
+.tile:hover img.bg{transform:scale(1.06);}
+.tile::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.62) 100%);
+}
+.tile .num{
+  position:absolute;top:26px;left:30px;
+  font-family:'Cormorant Garamond', serif;font-size:14px;letter-spacing:0.1em;
+  color:rgba(255,255,255,0.9);
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.35);
+  backdrop-filter:blur(6px);
+  width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.tile h3{color:#fff;font-family:'Cormorant Garamond', serif;font-size:26px;font-weight:500;margin-bottom:8px;}
+.tile.tall h3{font-size:32px;}
+.tile p{font-size:13px;color:rgba(255,255,255,0.82);font-weight:300;max-width:34ch;line-height:1.55;margin-bottom:14px;}
+.tile .explore{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:500;letter-spacing:0.05em;color:#fff;
+}
+.tile .explore svg{width:12px;height:12px;transition:transform .3s ease;}
+.tile:hover .explore svg{transform:translateX(4px);}
 
-    revealEls.forEach(function (el, i) {
-      el.style.transitionDelay = (i % 6) * 0.06 + 's';
-      observer.observe(el);
+@media (max-width:1024px){
+  .grid-2, .grid-3{grid-template-columns:1fr;}
+}
+</style>
+
+<div class="wrap">
+
+  <!-- ROW 1: Home Decor / Chess Collection -->
+  <div class="grid-2">
+    <a href="#" class="tile tall">
+      <span class="num">01</span>
+      <img class="bg" src="https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?auto=format&fit=crop&w=1200&q=80" alt="Home Decor — ceramic vases">
+      <h3>Home Decor</h3>
+      <p>Timeless pieces that elevate and transform your space.</p>
+      <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="#" class="tile tall">
+      <span class="num">02</span>
+      <img class="bg" src="https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&w=1200&q=80" alt="Chess Collection — handcrafted chess set">
+      <h3>Chess Collection</h3>
+      <p>Handcrafted elegance for strategic minds.</p>
+      <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+
+  <!-- ROW 2: Cabinet Hardware / Kitchenware / Bar Accessories -->
+  <div class="grid-3">
+    <a href="#" class="tile">
+      <span class="num">03</span>
+      <img class="bg" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80" alt="Cabinet Hardware — brass drawer handles">
+      <h3>Cabinet Hardware</h3>
+      <p>Refined details that complete your furniture beautifully.</p>
+      <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="#" class="tile">
+      <span class="num">04</span>
+      <img class="bg" src="https://images.unsplash.com/photo-1492552296703-4ec0a2fb3715?auto=format&fit=crop&w=1200&q=80" alt="Kitchenware — marble mortar and pestle">
+      <h3>Kitchenware</h3>
+      <p>Functional luxury for the heart of your home.</p>
+      <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="#" class="tile">
+      <span class="num">05</span>
+      <img class="bg" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" alt="Bar Accessories — crystal glasses and decanter">
+      <h3>Bar Accessories</h3>
+      <p>Crafted for those who appreciate fine moments.</p>
+      <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+
+  <!-- ROW 3: Office Decor / Bathroom Accessories / Decorative Objects -->
+  <div class="grid-3">
+    <a href="#" class="tile">
+      <span class="num">06</span>
+      <img class="bg" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80" alt="Office Decor — minimal desk accessories">
+      <h3>Office Decor</h3>
+      <p>Sophisticated accents that inspire focus and creativity.</p>
+      <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="#" class="tile">
+      <span class="num">07</span>
+      <img class="bg" src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=80" alt="Bathroom Accessories — marble bath tray and soap set">
+      <h3>Bathroom Accessories</h3>
+      <p>Elegant essentials for a luxurious experience.</p>
+      <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="#" class="tile">
+      <span class="num">08</span>
+      <img class="bg" src="https://images.unsplash.com/photo-1616627547584-bf28cee262db?auto=format&fit=crop&w=1200&q=80" alt="Decorative Objects — sculptural home accents">
+      <h3>Decorative Objects</h3>
+      <p>Unique pieces that tell stories and spark conversations.</p>
+      <span class="explore">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+
+</div>
+
+  <style>
+:root{
+  --ivory:#FAFAFA;
+  --clay:#4A4A4A;
+  --gold:#1F1F1F;
+  --ink:#000000;
+  --bronze:#000000;
+  --graphite:#4A4A4A;
+
+  --glass-blur:14px;
+  --glass-sat:140%;
+  --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+  --glass-border:1px solid rgba(255,255,255,0.7);
+  --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+
+  --r-hero:60px;
+  --r-asym-b:90px 42px 90px 42px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{ font-family:'Inter', sans-serif; background:var(--ivory); }
+a{ color:inherit; text-decoration:none; }
+img{ display:block; max-width:100%; }
+
+.wrap{
+  max-width:1500px;
+  margin:0 auto;
+  padding:0 40px;
+}
+
+.eyebrow{
+  font-family:'Inter', sans-serif;
+  font-size:11px;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--clay);
+  font-weight:600;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;
+}
+
+/* ============ CURATED WITH PURPOSE ============ */
+#curated{
+  margin-top:26px;
+  border-radius:var(--r-hero);
+  background:linear-gradient(120deg, #F2F1EF 0%, #EAE8E4 55%, #F5F4F2 100%);
+  display:grid;grid-template-columns:1.15fr 0.85fr;
+  align-items:center;gap:20px;
+  padding:60px 60px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:var(--shadow-soft);
+}
+.curated-copy .eyebrow{margin-bottom:22px;}
+.curated-copy h2{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(28px, 2.8vw, 40px);
+  line-height:1.3;font-weight:500;color:var(--ink);
+  max-width:20ch;margin-bottom:34px;
+}
+.curated-sig{height:34px;width:auto;opacity:0.85;filter:brightness(0);margin-top:6px;}
+.curated-icons-row{display:flex;gap:18px;margin-bottom:38px;flex-wrap:wrap;}
+.icon-item{display:flex;flex-direction:column;align-items:center;gap:12px;width:100px;text-align:center;}
+.icon-circle{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border:var(--glass-border);
+  box-shadow:var(--shadow-soft), var(--glass-highlight);
+  display:flex;align-items:center;justify-content:center;
+  transition:box-shadow .3s ease, transform .3s cubic-bezier(.16,.84,.44,1);
+}
+.icon-item:hover .icon-circle{box-shadow:var(--shadow-lift), var(--glass-highlight);transform:translateY(-4px);}
+.icon-circle svg{width:22px;height:22px;color:var(--bronze);}
+.icon-item span{font-size:11.5px;color:var(--graphite);line-height:1.35;font-weight:500;}
+
+.curated-visual{
+  position:relative;border-radius:var(--r-asym-b);overflow:hidden;aspect-ratio:480/420;
+  box-shadow:var(--shadow-lift);
+}
+.curated-visual img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,.84,.44,1);}
+.curated-visual:hover img{transform:scale(1.03);}
+
+@media (max-width:1024px){
+  #curated{grid-template-columns:1fr;padding:44px 32px;}
+  .curated-visual{order:-1;}
+}
+</style>
+
+<div class="wrap">
+  <section id="curated">
+    <div class="curated-copy">
+      <span class="eyebrow">Curated With Purpose</span>
+      <h2>Every collection is a reflection of our passion for craftsmanship and timeless design.</h2>
+
+      <div class="curated-icons-row">
+        <div class="icon-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 21c-2-3-2-7 1-10 2-2 2-4 1-6 3 1 5 3 5 6 0 2-1 3-1 5 2-1 3-3 3-5 2 2 3 5 1 8-1 2-3 2-5 2s-4 0-5-0Z"/></svg>
+          </div>
+          <span>Handcrafted<br>with Care</span>
+        </div>
+        <div class="icon-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12l3 5-9 13L3 8Z"/><path d="M3 8h18M9 3l3 5 3-5M12 8l-2 13M12 8l2 13"/></svg>
+          </div>
+          <span>Premium<br>Materials</span>
+        </div>
+        <div class="icon-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+          </div>
+          <span>Timeless<br>Design</span>
+        </div>
+        <div class="icon-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7 9 18l-5-5"/><path d="M9 18l1.5-1.5M15 5l2 2"/></svg>
+          </div>
+          <span>Made to<br>Last</span>
+        </div>
+      </div>
+
+      <img class="curated-sig" src="assets/signature.png" alt="h.m.a Handicrafts signature">
+    </div>
+    <div class="curated-visual">
+      <img src="https://images.unsplash.com/photo-1643569556871-91ec60671ed7?auto=format&fit=crop&w=1000&q=80" alt="Ceramic vase and bowl">
+    </div>
+  </section>
+</div>
+
+  <script>
+    const siteHeader = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      siteHeader.classList.toggle('is-scrolled', window.scrollY > 8);
     });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('in'); });
-  }
 
-  // Smooth-scroll for in-page nav links (currently all placeholders)
-  document.querySelectorAll('a[href="#"]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
+    const menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.addEventListener('click', () => {
+      siteHeader.classList.toggle('is-open');
     });
-  });
-});
-</script>
+
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => siteHeader.classList.remove('is-open'));
+    });
+  </script>
+
 </body>
 </html>
