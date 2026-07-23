@@ -476,8 +476,6 @@ body{font-family:'Inter', sans-serif;background:var(--ivory);}
       <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=800" alt="Handcrafted ceramic vases and bowls">
       <div class="hero-float-card glass">
         <div class="hero-float-avatars">
-          <img src="https://i.pravatar.cc/80?img=5" alt="">
-          <img src="https://i.pravatar.cc/80?img=15" alt="">
         </div>
         <h4>Made by Hand</h4>
         <p>Every piece is crafted by skilled artisans with passion and care.</p>
@@ -1544,6 +1542,417 @@ img{ display:block; max-width:100%; }
       link.addEventListener('click', () => siteHeader.classList.remove('is-open'));
     });
   </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
+
+<style>
+:root{
+  --ivory:#FAFAFA;
+  --cream:#FFFFFF;
+  --sand:#F5F5F7;
+  --taupe:#D9D9D9;
+  --clay:#4A4A4A;
+  --bronze:#000000;
+  --gold:#1F1F1F;
+  --charcoal:#1F1F1F;
+  --graphite:#4A4A4A;
+  --ink:#000000;
+
+  --glass-blur:14px;
+  --glass-sat:140%;
+  --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+  --glass-border:1px solid rgba(255,255,255,0.7);
+  --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+  --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+  --shadow-md:var(--shadow-soft);
+  --shadow-lg:var(--shadow-lift);
+
+  --ink-soft:var(--graphite);
+  --r-pill:100px;
+  --r-hero:60px;
+  --r-card:34px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:'Inter', sans-serif; font-weight:400;}
+h1,h2,h3,h4{color:var(--ink); letter-spacing:0.01em; font-weight:500;}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+
+.glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border:var(--glass-border);
+  box-shadow:var(--shadow-soft), var(--glass-highlight);
+  position:relative;
+}
+
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 18px; border-radius:var(--r-pill);
+  border:1px solid var(--taupe); background:var(--cream);
+  font-size:11px; font-weight:600; letter-spacing:0.14em; color:var(--clay);
+  margin-bottom:26px;
+}
+.badge svg{width:13px; height:13px; color:var(--gold);}
+
+.cta-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(160deg, #2A2A2A, #000000); color:var(--cream);
+  padding:13px 26px; border-radius:var(--r-pill);
+  font-size:13px; font-weight:500; letter-spacing:0.03em;
+  box-shadow:var(--shadow-md);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.cta-btn:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg);}
+.cta-btn svg{width:16px; height:16px;}
+
+.hma-hero{padding:70px 40px 60px; position:relative;}
+.hma-hero-grid{
+  display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center;
+  max-width:1500px; margin:0 auto;
+}
+.hma-hero-copy h1{
+  font-family:'Cormorant Garamond', serif; font-weight:500; letter-spacing:0.01em;
+  font-size:clamp(44px,5.2vw,68px); line-height:1.05; margin-bottom:22px;
+}
+.hma-hero-copy p{font-size:17px; line-height:1.7; color:var(--ink-soft); max-width:460px; margin-bottom:34px;}
+.hma-hero-actions{display:flex; align-items:center; gap:16px; margin-bottom:44px; flex-wrap:wrap;}
+
+.hma-watch{display:flex; align-items:center; gap:12px; font-size:13.5px; color:var(--graphite); cursor:pointer;}
+.hma-play-circle{width:36px; height:36px; border-radius:50%; border:1px solid var(--ink); display:flex; align-items:center; justify-content:center; transition:all .25s ease; flex-shrink:0;}
+.hma-play-circle svg{width:11px; height:11px; fill:var(--ink); margin-left:2px;}
+.hma-watch:hover .hma-play-circle{background:var(--ink);}
+.hma-watch:hover .hma-play-circle svg{fill:var(--cream);}
+
+.hero-right{position:relative; border-radius:var(--r-hero); overflow:visible;}
+.hero-right img{border-radius:var(--r-hero); width:100%; height:520px; object-fit:cover; box-shadow:var(--shadow-lg); filter:grayscale(0.06) contrast(1.02);}
+
+.hero-float-card{
+  position:absolute; bottom:-30px; left:-40px;
+  width:240px; padding:22px;
+  border-radius:var(--r-card);
+}
+.hero-float-card .hero-float-icon{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--taupe);
+  display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:var(--ink);
+}
+.hero-float-card .hero-float-icon svg{width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.4;}
+.hero-float-card h4{font-family:'Cormorant Garamond', serif; font-weight:500; color:var(--ink); font-size:17px; margin-bottom:4px;}
+.hero-float-card p{font-size:12.5px; line-height:1.5; color:var(--ink-soft);}
+
+.feature-strip{padding:20px 40px 70px;}
+.feature-card-outer{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-radius:38px; overflow:hidden; max-width:1500px; margin:0 auto;
+}
+.feature-item{
+  display:flex; align-items:center; gap:16px;
+  padding:28px 26px;
+  border-right:1px solid rgba(0,0,0,0.06);
+}
+.feature-item:last-child{border-right:none;}
+.feature-item svg{width:26px; height:26px; color:var(--charcoal); flex-shrink:0; stroke:currentColor; fill:none; stroke-width:1.4;}
+.feature-item h4{font-family:'Cormorant Garamond', serif; font-weight:600; color:var(--ink); font-size:20px; margin-bottom:4px;}
+.feature-item p{font-size:12.5px; color:var(--ink-soft); line-height:1.4;}
+
+@media (max-width:1024px){
+  .hma-hero-grid{grid-template-columns:1fr; gap:48px;}
+  .hero-right{order:-1;}
+  .hero-float-card{left:20px;}
+  .feature-card-outer{grid-template-columns:repeat(2,1fr);}
+  .feature-item{border-bottom:1px solid rgba(0,0,0,0.06); border-right:none;}
+}
+@media (max-width:640px){
+  .feature-card-outer{grid-template-columns:1fr;}
+  .feature-item{border-right:none;}
+}
+</style>
+
+<section class="hma-hero">
+  <div class="hma-hero-grid">
+    <div class="hma-hero-copy">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+        WHY CHOOSE HMA
+      </span>
+      <h1>Crafted with purpose.<br>Trusted worldwide.</h1>
+      <p>At HMA Handicrafts, every piece is made slowly, by hand, and built to last. What we offer beyond the object is a relationship built on trust and quality.</p>
+
+      <div class="hma-hero-actions">
+        <a href="#" class="cta-btn">
+          Discover Our Difference
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <div class="hma-watch">
+          <div class="hma-play-circle"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20"/></svg></div>
+          <span>Watch Our Process</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+    </div>
+  </div>
+</section>
+
+<section class="feature-strip">
+  <div class="feature-card-outer glass">
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>
+      <div>
+        <h4>18+ Years</h4>
+        <p>Of dedicated craftsmanship.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+      <div>
+        <h4>8+ Countries</h4>
+        <p>Exported to, and counting.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.4"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15 20c.3-2.8 2-5 4.5-5.4"/></svg>
+      <div>
+        <h4>20+ Clients</h4>
+        <p>Working with us globally.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg>
+      <div>
+        <h4>62% Repeat</h4>
+        <p>Order rate among clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
+
+<style>
+:root{
+  --cream:#FFFFFF;
+  --taupe:#D9D9D9;
+  --clay:#4A4A4A;
+  --gold:#1F1F1F;
+  --graphite:#4A4A4A;
+  --ink:#000000;
+
+  --glass-blur:14px;
+  --glass-sat:140%;
+  --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+  --glass-border:1px solid rgba(255,255,255,0.7);
+  --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+  --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+
+  --ink-soft:var(--graphite);
+  --r-pill:100px;
+  --r-card:34px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:'Inter', sans-serif; font-weight:400;}
+h1,h2,h3,h4{color:var(--ink); letter-spacing:0.01em; font-weight:500;}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+
+/* renamed from .glass to .features-glass to avoid colliding with hero-section's .glass */
+.features-glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border:var(--glass-border);
+  box-shadow:var(--shadow-soft), var(--glass-highlight);
+  position:relative;
+}
+
+.wrap{max-width:1500px; margin:0 auto; padding:0 40px;}
+
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 18px; border-radius:var(--r-pill);
+  border:1px solid var(--taupe); background:var(--cream);
+  font-size:11px; font-weight:600; letter-spacing:0.14em; color:var(--clay);
+  margin-bottom:26px;
+}
+.badge svg{width:13px; height:13px; color:var(--gold);}
+.badge .num{font-family:'Cormorant Garamond', serif; font-size:13px; font-weight:600;}
+
+.head{max-width:760px; margin:0 0 56px;}
+.head h2{
+  font-family:'Cormorant Garamond', serif; font-weight:500;
+  font-size:clamp(30px,3.6vw,46px); line-height:1.15;
+}
+.head p{margin-top:16px; font-size:15px; color:var(--ink-soft); line-height:1.75; max-width:56ch; font-weight:300;}
+
+.hma-features{padding:80px 40px 20px;}
+.hma-features-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; max-width:1500px; margin:0 auto;}
+.hma-feature-card{
+  border-radius:var(--r-card);
+  overflow:hidden; display:flex; flex-direction:column; justify-content:space-between;
+  transition:transform .4s cubic-bezier(.16,.84,.44,1);
+  min-height:330px; transform:translateZ(0);
+}
+.hma-feature-card:hover{transform:translateY(-8px) translateZ(0);}
+.hma-feature-top{padding:28px 26px 0;}
+.hma-feature-icon{width:38px; height:38px; border-radius:50%; border:1px solid var(--taupe); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+.hma-feature-icon svg{width:16px; height:16px; stroke:var(--ink); fill:none; stroke-width:1.4;}
+.hma-feature-card h3{font-family:'Cormorant Garamond', serif; font-size:21px; font-weight:600; line-height:1.25; margin-bottom:10px;}
+.hma-feature-card p{font-size:12.5px; line-height:1.65; color:var(--ink-soft); max-width:220px; font-weight:300;}
+.hma-feature-arrow{
+  width:32px; height:32px; border-radius:50%; border:1px solid var(--ink);
+  display:flex; align-items:center; justify-content:center; margin:18px 0 24px 26px;
+  transition:all .25s ease; flex-shrink:0;
+}
+.hma-feature-arrow svg{width:12px; height:12px; stroke:var(--ink); fill:none; transition:transform .25s ease;}
+.hma-feature-card:hover .hma-feature-arrow{background:var(--ink);}
+.hma-feature-card:hover .hma-feature-arrow svg{stroke:var(--cream); transform:translateX(2px) translateY(-2px);}
+.hma-feature-media{height:145px; overflow:hidden; position:relative;}
+.hma-feature-media img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease; filter:grayscale(0.06) contrast(1.02);}
+.hma-feature-card:hover .hma-feature-media img{transform:scale(1.06);}
+
+@media (max-width:1100px){
+  .hma-features-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:640px){
+  .hma-features-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<section class="hma-features" id="reasons">
+  <div class="wrap">
+    <div class="head">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+        <span class="num"></span>&nbsp;WHAT SETS US APART
+      </span>
+      <h2>Eight reasons HMA earns repeat trust.</h2>
+      <p>Each one traces back to the same idea: craft as a form of care, made legible in every material choice and every shipment.</p>
+    </div>
+
+    <div class="hma-features-grid">
+
+      <div class="hma-feature-card features-glass">
+        <div>
+          <div class="hma-feature-top">
+            <div class="hma-feature-icon"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></div>
+            <h3>18+ Years of Craftsmanship</h3>
+            <p>Nearly two decades spent shaping handcrafted pieces made to hold up over time.</p>
+          </div>
+        </div>
+        <div>
+          <div class="hma-feature-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div class="hma-feature-media"><img src="assets/reasons/craftsmanship.png" alt="Carved terracotta vase"></div>
+        </div>
+      </div>
+
+      <div class="hma-feature-card features-glass">
+        <div>
+          <div class="hma-feature-top">
+            <div class="hma-feature-icon"><svg viewBox="0 0 24 24" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
+            <h3>Global Export Experience</h3>
+            <p>Trusted by clients across 8+ countries, with a working understanding of international quality standards.</p>
+          </div>
+        </div>
+        <div>
+          <div class="hma-feature-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div class="hma-feature-media"><img src="assets/reasons/global-export.png" alt="Globe on marble surface"></div>
+        </div>
+      </div>
+
+      <div class="hma-feature-card features-glass">
+        <div>
+          <div class="hma-feature-top">
+            <div class="hma-feature-icon"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5"/><line x1="12" y1="12" x2="12" y2="22"/></svg></div>
+            <h3>Premium Materials</h3>
+            <p>We choose raw materials for how they age — for durability, and for lasting value.</p>
+          </div>
+        </div>
+        <div>
+          <div class="hma-feature-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div class="hma-feature-media"><img src="assets/reasons/premium-materials.png" alt="Marble slabs"></div>
+        </div>
+      </div>
+
+      <div class="hma-feature-card features-glass">
+        <div>
+          <div class="hma-feature-top">
+            <div class="hma-feature-icon"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 21s-7-4.5-9.5-8.5C.5 8.5 3 5 6.5 5c1.8 0 3.2 1 4 2.3C11.3 6 12.7 5 14.5 5 18 5 20.5 8.5 20.5 12.5 18 16.5 12 21 12 21z"/></svg></div>
+            <h3>Handmade Quality</h3>
+            <p>Every piece is shaped by hand, by artisans who measure success in finish, not volume.</p>
+          </div>
+        </div>
+        <div>
+          <div class="hma-feature-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div class="hma-feature-media"><img src="assets/reasons/handmade-quality.png" alt="Artisan hand carving detail"></div>
+        </div>
+      </div>
+
+      <div class="hma-feature-card features-glass">
+        <div>
+          <div class="hma-feature-top">
+            <div class="hma-feature-icon"><svg viewBox="0 0 24 24" stroke-width="1.4"><line x1="4" y1="7" x2="14" y2="17"/><line x1="14" y1="7" x2="4" y2="17"/><path d="M15 4l5 5-5 5"/></svg></div>
+            <h3>Custom Manufacturing</h3>
+            <p>From concept to creation, we bring your ideas to life with precision and care.</p>
+          </div>
+        </div>
+        <div>
+          <div class="hma-feature-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div class="hma-feature-media"><img src="assets/reasons/custom-manufacturing.png" alt="Brass drawer handle on marble"></div>
+        </div>
+      </div>
+
+      <div class="hma-feature-card features-glass">
+        <div>
+          <div class="hma-feature-top">
+            <div class="hma-feature-icon"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+            <h3>Worldwide Shipping</h3>
+            <p>Careful packaging and reliable shipping, delivered safely to your doorstep.</p>
+          </div>
+        </div>
+        <div>
+          <div class="hma-feature-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div class="hma-feature-media"><img src="assets/reasons/worldwide-shipping.png" alt="Wooden crate packaging"></div>
+        </div>
+      </div>
+
+      <div class="hma-feature-card features-glass">
+        <div>
+          <div class="hma-feature-top">
+            <div class="hma-feature-icon"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 2C7 2 5 6 5 10c0 5 4 9 7 12 3-3 7-7 7-12 0-4-2-8-7-8z"/></svg></div>
+            <h3>Sustainable Practices</h3>
+            <p>Committed to ethical sourcing and responsible production, for a greener tomorrow.</p>
+          </div>
+        </div>
+        <div>
+          <div class="hma-feature-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div class="hma-feature-media"><img src="assets/reasons/sustainable-practices.png" alt="Glass vase with eucalyptus"></div>
+        </div>
+      </div>
+
+      <div class="hma-feature-card features-glass">
+        <div>
+          <div class="hma-feature-top">
+            <div class="hma-feature-icon"><svg viewBox="0 0 24 24" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <h3>Attention to Detail</h3>
+            <p>Precision in every curve and finish — the quiet signature of true craftsmanship.</p>
+          </div>
+        </div>
+        <div>
+          <div class="hma-feature-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div class="hma-feature-media"><img src="assets/reasons/attention-to-detail.png" alt="Brass hardware knobs"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
