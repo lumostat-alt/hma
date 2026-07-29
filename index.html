@@ -269,12 +269,12 @@ body{font-family:'Inter', sans-serif;background:var(--ivory);}
 }
 
 .hero-left h1{
-  font-family:'Georgia', serif;
+  font-family:'Cormorant Garamond', serif;
   font-weight:500;
   letter-spacing:0.01em;
   color:var(--ink);
-  font-size:clamp(44px,5.2vw,68px);
-  line-height:1.05;
+  font-size:clamp(40px,4.8vw,60px);
+  line-height:1.1;
   margin-bottom:22px;
 }
 .hero-left .lead{
@@ -1180,10 +1180,11 @@ a{ color:inherit; text-decoration:none; }
 }
 .hero-copy{max-width:none;}
 .hero-copy .eyebrow{margin-bottom:22px;width:fit-content;}
+.hero-copy .eyebrow::before{display:none;}
 .hero-copy h1{
   font-family:'Cormorant Garamond', serif;
-  font-size:clamp(36px, 5vw, 58px);
-  line-height:1.2;
+  font-size:clamp(40px, 4.8vw, 60px);
+  line-height:1.1;
   font-weight:500;
   letter-spacing:0.01em;
   color:var(--ink);
@@ -1230,7 +1231,7 @@ a{ color:inherit; text-decoration:none; }
 <div class="wrap">
   <section id="hero">
     <div class="hero-copy">
-      <span class="eyebrow">Our Collections</span>
+      <span class="eyebrow"><svg viewBox="0 0 24 24" fill="currentColor" style="width:12px;height:12px;flex-shrink:0;color:var(--gold);"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>Our Collections</span>
       <h1>Designed for Every Space,<br><span class="h1-muted">Crafted to Inspire.</span></h1>
       <div class="hero-actions">
         <a href="#" class="cta-btn">
@@ -1527,13 +1528,14 @@ img{max-width:100%; display:block;}
 .cta-btn:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg);}
 .cta-btn svg{width:16px; height:16px;}
 
-.hma-hero{padding:170px 40px 40px; position:relative;}
+.hma-hero{padding:170px 0 40px; position:relative;}
 .hma-hero2-grid{
-  max-width:1500px; margin:0 auto;
+  max-width:1500px; margin:0 auto; padding:0 40px;
 }
 .hma-hero-copy h1{
   font-family:'Cormorant Garamond', serif; font-weight:500; letter-spacing:0.01em;
-  font-size:clamp(44px,5.2vw,68px); line-height:1.05; margin-bottom:22px;
+  color:var(--ink);
+  font-size:clamp(40px,4.8vw,60px); line-height:1.1; margin-bottom:22px;
 }
 .hma-hero-copy p{font-size:17px; line-height:1.7; color:var(--ink-soft); max-width:460px; margin-bottom:34px;}
 .hma-hero-actions{display:flex; align-items:center; gap:16px; margin-bottom:20px; flex-wrap:wrap;}
@@ -1853,6 +1855,1027 @@ img{max-width:100%; display:block;}
       </div>
 
     </div>
+  </div>
+</section>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  .hma-hero-block{
+    --hma-ink:#000000;
+    --hma-charcoal:#1F1F1F;
+    --hma-graphite:#4A4A4A;
+    --hma-gold:#1F1F1F;
+    --hma-glass-blur:14px;
+    --hma-glass-sat:140%;
+    --hma-glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+    --hma-glass-border:1px solid rgba(255,255,255,0.7);
+    --hma-glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+    --hma-shadow-soft: 0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+    --hma-shadow-lift: 0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+    --hma-r-pill: 100px;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+    color: var(--hma-charcoal);
+    padding: 28px clamp(20px, 4vw, 64px) 0;
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+  .hma-hero-block *{ box-sizing:border-box; }
+  .hma-hero-block h1{
+    font-family:'Cormorant Garamond', serif;
+    color: var(--hma-ink);
+    margin:0;
+  }
+  .hma-hero-block button{ font-family:'Inter', sans-serif; cursor:pointer; }
+  /* ---------- Hero ---------- */
+  .hma-hero{
+    padding: 34px 0 48px;
+  }
+  .hma-eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 18px; border-radius: var(--hma-r-pill);
+    background: var(--hma-glass-bg);
+    backdrop-filter: blur(var(--hma-glass-blur)) saturate(var(--hma-glass-sat));
+    -webkit-backdrop-filter: blur(var(--hma-glass-blur)) saturate(var(--hma-glass-sat));
+    border: var(--hma-glass-border);
+    box-shadow: var(--hma-shadow-soft), var(--hma-glass-highlight);
+    font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
+    color: var(--hma-graphite); margin-bottom:26px;
+  }
+  .hma-eyebrow svg{ width:13px; height:13px; color: var(--hma-gold); }
+  .hma-hero-copy .hma-eyebrow::before{ display:none; }
+  .hma-hero h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(40px, 4.8vw, 60px); font-weight:500; line-height:1.1; letter-spacing:0.01em;
+    margin-bottom:22px;
+  }
+  .hma-hero-actions{ display:flex; align-items:center; gap:22px; }
+  .hma-cta-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    background: linear-gradient(160deg, #2A2A2A, #000000); color:#fff; border:none;
+    padding:13px 24px; border-radius: var(--hma-r-pill); font-size:13px; font-weight:500; letter-spacing:0.03em;
+    box-shadow: var(--hma-shadow-soft);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .hma-cta-pill:hover{ transform: translateY(-2px); box-shadow: var(--hma-shadow-lift); }
+  .hma-cta-pill svg{ width:15px; height:15px; transition: transform .25s ease; }
+  .hma-cta-pill:hover svg{ transform: translateX(3px); }
+</style>
+<div class="hma-hero-block">
+  <div class="hma-hero">
+    <div class="hma-hero-copy">
+      <div class="hma-eyebrow">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:11px;height:11px;flex-shrink:0;color:var(--hma-gold);"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+        SIGNATURE PRODUCTS
+      </div>
+      <h1>Pieces That Define<br><span style="color: var(--hma-graphite);">Timeless Luxury.</span></h1>
+      <div class="hma-hero-actions">
+        <button class="hma-cta-pill">View All Products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PRODUCT GRID SECTION (self-contained) ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  .hma-product-grid-section{
+    /* --- design tokens (namespaced so they won't leak/override) --- */
+    --hma-ink:#000000;
+    --hma-charcoal:#1F1F1F;
+    --hma-graphite:#4A4A4A;
+    --hma-cream:#FFFFFF;
+    --hma-sand-deep:#EAEAEA;
+    --hma-taupe:#D9D9D9;
+    --hma-taupe-line: rgba(0,0,0,0.1);
+    --hma-radius-card: 28px;
+    --hma-shadow-soft: 0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+    color: var(--hma-charcoal);
+    padding: 0 clamp(20px, 4vw, 64px) 26px;
+  }
+  .hma-product-grid-section *{ box-sizing:border-box; }
+  .hma-product-grid-section h3{
+    font-family:'Cormorant Garamond', serif;
+    color: var(--hma-ink);
+    margin:0;
+  }
+  .hma-product-grid-section a{ text-decoration:none; color:inherit; }
+
+  .hma-grid{
+    display:grid; grid-template-columns: repeat(5, 1fr); gap:20px;
+    max-width:1536px; margin:0 auto;
+  }
+  .hma-card{
+    background: var(--hma-cream); border:1px solid var(--hma-taupe-line);
+    border-radius: var(--hma-radius-card); overflow:hidden; display:flex; flex-direction:column;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .hma-card:hover{ transform: translateY(-4px); box-shadow: var(--hma-shadow-soft); }
+  .hma-card-media{ position:relative; aspect-ratio:1/0.86; overflow:hidden; }
+  .hma-card-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .hma-card-num{
+    position:absolute; top:12px; left:12px; width:30px; height:30px; border-radius:50%;
+    background: rgba(255,255,255,0.85); backdrop-filter: blur(6px);
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:600; color: var(--hma-ink);
+  }
+  .hma-card-body{ padding:18px 18px 16px; display:flex; flex-direction:column; flex:1; }
+  .hma-card-body h3{ font-size:19px; font-weight:500; margin-bottom:3px; }
+  .hma-card-cat{ font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color: var(--hma-taupe); margin-bottom:14px; }
+
+  .hma-spec{ display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-top:1px solid var(--hma-sand-deep); }
+  .hma-spec svg{ width:15px; height:15px; margin-top:2px; flex:none; color: var(--hma-charcoal); }
+  .hma-spec .hma-spec-text b{ display:block; font-size:11.5px; font-weight:600; margin-bottom:1px; }
+  .hma-spec .hma-spec-text span{ display:block; font-size:11px; line-height:1.4; color: var(--hma-graphite); font-weight:300; }
+
+  .hma-card-link{
+    margin-top:14px; display:flex; align-items:center; gap:6px;
+    font-size:12.5px; font-weight:600; color: var(--hma-ink);
+  }
+  .hma-card-link svg{ width:12px; height:12px; transition: transform .25s ease; }
+  .hma-card:hover .hma-card-link svg{ transform: translateX(4px); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1200px){
+    .hma-grid{ grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width:860px){
+    .hma-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width:560px){
+    .hma-grid{ grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hma-product-grid-section *{ transition:none !important; }
+  }
+</style>
+
+<section class="hma-product-grid-section">
+  <div class="hma-grid">
+
+    <!-- Card 1: Heritage Brass Box -->
+    <article class="hma-card">
+      <div class="hma-card-media" style="background:linear-gradient(150deg,#f2f0ed,#e3e0da);">
+        <span class="hma-card-num">01</span>
+        <img src="assets/heritage-brass-box.jpg" alt="Heritage Brass Box">
+      </div>
+      <div class="hma-card-body">
+        <h3>Heritage Brass Box</h3>
+        <div class="hma-card-cat">HOME DECOR</div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M5 7l2.5 2.5M19 7l-2.5 2.5M4 15h16M6 15c0 4 3 6 6 6s6-2 6-6"/></svg><div class="hma-spec-text"><b>Inspiration</b><span>Inspired by traditional Indian metal artistry.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4.3L17.5 20 12 17l-5.5 3 1-6.7L3 9l6-1z"/></svg><div class="hma-spec-text"><b>Material</b><span>Premium solid brass with antique finish.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3l3 3L8 19H5v-3z"/></svg><div class="hma-spec-text"><b>Craftsmanship</b><span>Hand-engraved by skilled artisans.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1 12H5L4 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><div class="hma-spec-text"><b>Best Use</b><span>Perfect for d&eacute;cor, keepsakes or gifting.</span></div></div>
+        <a href="#" class="hma-card-link">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <!-- Card 2: Imperial Chess Set -->
+    <article class="hma-card">
+      <div class="hma-card-media" style="background:linear-gradient(150deg,#2a2a2a,#111);">
+        <span class="hma-card-num">02</span>
+        <img src="assets/imperial-chess-set.jpg" alt="Imperial Chess Set">
+      </div>
+      <div class="hma-card-body">
+        <h3>Imperial Chess Set</h3>
+        <div class="hma-card-cat">CHESS COLLECTION</div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M5 7l2.5 2.5M19 7l-2.5 2.5M4 15h16M6 15c0 4 3 6 6 6s6-2 6-6"/></svg><div class="hma-spec-text"><b>Inspiration</b><span>A classic game reimagined in royal elegance.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4.3L17.5 20 12 17l-5.5 3 1-6.7L3 9l6-1z"/></svg><div class="hma-spec-text"><b>Material</b><span>Brass pieces with hand-polished finish.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3l3 3L8 19H5v-3z"/></svg><div class="hma-spec-text"><b>Craftsmanship</b><span>Precisely crafted and finely balanced.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1 12H5L4 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><div class="hma-spec-text"><b>Best Use</b><span>Ideal for collectors and elegant spaces.</span></div></div>
+        <a href="#" class="hma-card-link">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <!-- Card 3: Signature Cabinet Handle -->
+    <article class="hma-card">
+      <div class="hma-card-media" style="background:linear-gradient(150deg,#f2f0ed,#e3e0da);">
+        <span class="hma-card-num">03</span>
+        <img src="assets/signature-cabinet-handle.jpg" alt="Signature Cabinet Handle">
+      </div>
+      <div class="hma-card-body">
+        <h3>Signature Cabinet Handle</h3>
+        <div class="hma-card-cat">CABINET HARDWARE</div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M5 7l2.5 2.5M19 7l-2.5 2.5M4 15h16M6 15c0 4 3 6 6 6s6-2 6-6"/></svg><div class="hma-spec-text"><b>Inspiration</b><span>Minimal design with a touch of timeless charm.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4.3L17.5 20 12 17l-5.5 3 1-6.7L3 9l6-1z"/></svg><div class="hma-spec-text"><b>Material</b><span>Solid brass with brushed antique finish.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3l3 3L8 19H5v-3z"/></svg><div class="hma-spec-text"><b>Craftsmanship</b><span>CNC precision with handcrafted polishing.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1 12H5L4 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><div class="hma-spec-text"><b>Best Use</b><span>Enhances cabinets, drawers and furniture.</span></div></div>
+        <a href="#" class="hma-card-link">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <!-- Card 4: Marble Serving Bowl -->
+    <article class="hma-card">
+      <div class="hma-card-media" style="background:linear-gradient(150deg,#f2f0ed,#e3e0da);">
+        <span class="hma-card-num">04</span>
+        <img src="assets/marble-serving-bowl.jpg" alt="Marble Serving Bowl">
+      </div>
+      <div class="hma-card-body">
+        <h3>Marble Serving Bowl</h3>
+        <div class="hma-card-cat">KITCHENWARE</div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M5 7l2.5 2.5M19 7l-2.5 2.5M4 15h16M6 15c0 4 3 6 6 6s6-2 6-6"/></svg><div class="hma-spec-text"><b>Inspiration</b><span>Natural beauty meets functional design.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4.3L17.5 20 12 17l-5.5 3 1-6.7L3 9l6-1z"/></svg><div class="hma-spec-text"><b>Material</b><span>100% natural marble, food-safe finish.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3l3 3L8 19H5v-3z"/></svg><div class="hma-spec-text"><b>Craftsmanship</b><span>Hand-carved and smoothly finished.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1 12H5L4 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><div class="hma-spec-text"><b>Best Use</b><span>Perfect for serving, dining &amp; entertaining.</span></div></div>
+        <a href="#" class="hma-card-link">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <!-- Card 5: Elite Bar Set -->
+    <article class="hma-card">
+      <div class="hma-card-media" style="background:linear-gradient(150deg,#2a2a2a,#111);">
+        <span class="hma-card-num">05</span>
+        <img src="assets/elite-bar-set.jpg" alt="Elite Bar Set">
+      </div>
+      <div class="hma-card-body">
+        <h3>Elite Bar Set</h3>
+        <div class="hma-card-cat">BAR ACCESSORIES</div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M5 7l2.5 2.5M19 7l-2.5 2.5M4 15h16M6 15c0 4 3 6 6 6s6-2 6-6"/></svg><div class="hma-spec-text"><b>Inspiration</b><span>Designed for refined moments and luxury experiences.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4.3L17.5 20 12 17l-5.5 3 1-6.7L3 9l6-1z"/></svg><div class="hma-spec-text"><b>Material</b><span>Stainless steel with premium gold plating.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3l3 3L8 19H5v-3z"/></svg><div class="hma-spec-text"><b>Craftsmanship</b><span>Polished to perfection for a mirror finish.</span></div></div>
+        <div class="hma-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1 12H5L4 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><div class="hma-spec-text"><b>Best Use</b><span>Ideal for home bars and premium gifting.</span></div></div>
+        <a href="#" class="hma-card-link">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  .hma-banner-section{
+    /* --- namespaced design tokens --- */
+    --hma-ink:#000000;
+    --hma-charcoal:#1F1F1F;
+    --hma-graphite:#4A4A4A;
+    --hma-glass-blur:14px;
+    --hma-glass-sat:140%;
+    --hma-glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+    --hma-glass-border:1px solid rgba(255,255,255,0.7);
+    --hma-glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+    --hma-shadow-soft: 0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+    --hma-shadow-lift: 0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+    --hma-radius-card: 28px;
+    --hma-r-pill: 100px;
+
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+    color: var(--hma-charcoal);
+    padding: 0 clamp(20px, 4vw, 64px);
+  }
+  .hma-banner-section *{ box-sizing:border-box; }
+  .hma-banner-section h2{
+    font-family:'Cormorant Garamond', serif;
+    color: var(--hma-ink);
+    margin:0;
+  }
+  .hma-banner-section button{ font-family:'Inter', sans-serif; cursor:pointer; }
+
+  .hma-banner{
+    background: var(--hma-glass-bg);
+    backdrop-filter: blur(var(--hma-glass-blur)) saturate(var(--hma-glass-sat));
+    -webkit-backdrop-filter: blur(var(--hma-glass-blur)) saturate(var(--hma-glass-sat));
+    border: var(--hma-glass-border); border-radius: var(--hma-radius-card);
+    box-shadow: var(--hma-shadow-soft), var(--hma-glass-highlight);
+    display:flex; align-items:center; justify-content:space-between; gap:28px;
+    padding:30px 34px; flex-wrap:wrap;
+    max-width:1536px; margin:0 auto;
+  }
+  .hma-banner h2{ font-size:26px; font-weight:500; flex:none; }
+  .hma-banner-feats{ display:flex; align-items:center; gap:30px; flex-wrap:wrap; }
+  .hma-feat{ display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
+  .hma-feat svg{ width:22px; height:22px; }
+  .hma-feat span{ font-size:11px; font-weight:500; color: var(--hma-charcoal); max-width:76px; line-height:1.35; }
+
+  .hma-cta-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    background: linear-gradient(160deg, #2A2A2A, #000000); color:#fff; border:none;
+    padding:13px 24px; border-radius: var(--hma-r-pill); font-size:13px; font-weight:500; letter-spacing:0.03em;
+    box-shadow: var(--hma-shadow-soft);
+    transition: transform .3s ease, box-shadow .3s ease;
+    flex:none;
+  }
+  .hma-cta-pill:hover{ transform: translateY(-2px); box-shadow: var(--hma-shadow-lift); }
+  .hma-cta-pill svg{ width:15px; height:15px; transition: transform .25s ease; }
+  .hma-cta-pill:hover svg{ transform: translateX(3px); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:860px){
+    .hma-banner{ justify-content:center; text-align:center; }
+    .hma-banner-feats{ justify-content:center; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hma-banner-section *{ transition:none !important; }
+  }
+</style>
+
+<section class="hma-banner-section">
+  <div class="hma-banner">
+    <h2>Made for Generations</h2>
+    <div class="hma-banner-feats">
+      <div class="hma-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4.3L17.5 20 12 17l-5.5 3 1-6.7L3 9l6-1z"/></svg><span>Limited Productions</span></div>
+      <div class="hma-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg><span>Heirloom Quality</span></div>
+      <div class="hma-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 13c0-6 5-9 14-9 0 9-3 14-9 14-3 0-5-2-5-5Z"/><path d="M5 19c3-3.5 6-6.5 14-11"/></svg><span>Ethically Sourced</span></div>
+      <div class="hma-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h12M6 22h12"/><path d="M8 2c0 4 2 6.5 4 8.5-2 2-4 4.5-4 8.5M16 2c0 4-2 6.5-4 8.5 2 2 4 4.5 4 8.5"/></svg><span>Timeless Design</span></div>
+      <button class="hma-cta-pill">Explore All Collections
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HERO + CUSTOM MANUFACTURING PROCESS (self-contained) ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  .hma-process-block, .hma-process-block *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  .hma-process-block{
+    /* --- namespaced design tokens --- */
+    --clay:#4A4A4A;
+    --charcoal:#1F1F1F;
+    --graphite:#4A4A4A;
+    --ink:#000000;
+    --ink-soft:var(--graphite);
+    --cream:#FFFFFF;
+    --sand:#F5F5F7;
+    --sand-deep:#EAEAEA;
+    --gold:#1F1F1F;
+    --glass-blur:14px;
+    --glass-sat:140%;
+    --glass-bg:linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+    --glass-border:1px solid rgba(255,255,255,0.7);
+    --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+    --shadow-soft:0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+    --shadow-lift:0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+    --r-pill:100px;
+    --r-app:38px;
+    --r-card:34px;
+
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+  }
+  .hma-process-block h1, .hma-process-block h2, .hma-process-block .process-step-title{
+    font-family:'Cormorant Garamond', serif;
+    color:var(--ink);
+  }
+
+  /* ---------- Badge / CTA button (shared) ---------- */
+  .hpc-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:9px 18px;
+    border-radius:var(--r-pill);
+    border:var(--glass-border);
+    background:var(--glass-bg);
+    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+    box-shadow:var(--shadow-soft), var(--glass-highlight);
+    font-size:11px;font-weight:600;letter-spacing:0.14em;
+    color:var(--clay);
+    margin-bottom:26px;
+  }
+  .hpc-badge svg{width:13px;height:13px;color:var(--gold);}
+
+  .hpc-cta-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:linear-gradient(160deg, #2A2A2A, #000000);
+    color:var(--cream);
+    padding:13px 26px;
+    border-radius:var(--r-pill);
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:0.03em;
+    box-shadow:var(--shadow-soft);
+    transition:transform .3s ease, box-shadow .3s ease;
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    text-decoration:none;
+  }
+  .hpc-cta-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+  .hpc-cta-btn svg{width:16px;height:16px;}
+
+  /* ---------- Hero ---------- */
+  .hpc-hero-section{position:relative;padding:70px 40px 40px;}
+  .hpc-hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:64px;
+    align-items:center;
+    max-width:1500px;
+    margin:0 auto;
+  }
+  .hpc-hero-left h1{
+    font-weight:500;
+    letter-spacing:0.01em;
+    font-size:clamp(44px,5.2vw,68px);
+    line-height:1.05;
+    margin-bottom:22px;
+  }
+  .hpc-hero-ctas{display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap;}
+
+  /* ---------- Process section ---------- */
+  .hpc-feature-glass{
+    background:var(--glass-bg);
+    backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+    border:var(--glass-border);
+    box-shadow:var(--shadow-soft), var(--glass-highlight);
+    position:relative;
+  }
+  .process-section{padding:20px 40px 40px;text-align:center;}
+  .process-eyebrow{justify-content:center;margin:0 auto 20px;}
+  .process-section h2{
+    font-weight:500;
+    font-size:clamp(30px,3.4vw,40px);margin:0 0 46px;letter-spacing:0.01em;
+  }
+  .process-card-outer{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-radius:var(--r-app);
+    overflow:hidden;
+    max-width:1500px;
+    margin:0 auto;
+  }
+  .process-step{
+    display:flex;flex-direction:column;text-align:left;
+    padding:30px 28px 34px;
+    border-right:1px solid rgba(0,0,0,0.06);
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+  .process-card-outer .process-step:nth-child(3n){border-right:none;}
+  .process-card-outer .process-step:nth-child(n+4){border-bottom:none;}
+  .process-step-head{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .process-step-num{
+    font-size:11px;letter-spacing:0.06em;color:var(--ink-soft);
+    border:1px solid rgba(0,0,0,0.1);border-radius:100px;padding:4px 10px;
+    background:rgba(255,255,255,0.5);
+  }
+  .process-step-title{font-weight:600;font-size:18px;}
+  .process-step-img{
+    border-radius:var(--r-card);overflow:hidden;height:170px;margin-bottom:18px;
+    background:var(--sand-deep);box-shadow:var(--shadow-soft);
+  }
+  .process-step-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .process-step-body{display:flex;gap:10px;align-items:flex-start;}
+  .process-step-body svg{width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:1.4;margin-top:2px;flex:none;}
+  .process-step-body p{font-size:13px;line-height:1.6;color:var(--ink-soft);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1024px){
+    .hpc-hero-grid{grid-template-columns:1fr;gap:48px;}
+    .process-card-outer{grid-template-columns:repeat(2,1fr);}
+    .process-card-outer .process-step{border-right:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);}
+    .process-card-outer .process-step:nth-child(2n){border-right:none;}
+    .process-card-outer .process-step:nth-child(5),
+    .process-card-outer .process-step:nth-child(6){border-bottom:none;}
+  }
+  @media (max-width:640px){
+    .process-card-outer{grid-template-columns:1fr;}
+    .process-card-outer .process-step{border-right:none;}
+    .process-card-outer .process-step:last-child{border-bottom:none;}
+    .process-section{padding:10px 20px 30px;}
+  }
+</style>
+
+<div class="hma-process-block">
+
+  <section class="hpc-hero-section">
+    <div class="hpc-hero-grid">
+      <div class="hpc-hero-left">
+        <span class="hpc-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+          CUSTOM MANUFACTURING
+        </span>
+        <h1>Your Vision.<br><span style="color:var(--clay);">Our Craftsmanship.</span></h1>
+
+        <div class="hpc-hero-ctas">
+          <a href="#" class="hpc-cta-btn">
+            Start Your Custom Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <span class="hpc-badge process-eyebrow">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+      OUR CUSTOM MANUFACTURING PROCESS
+    </span>
+    <h2>A Seamless Journey from Concept to Delivery</h2>
+
+    <div class="process-card-outer hpc-feature-glass">
+      <!-- 01 Design -->
+      <article class="process-step">
+        <div class="process-step-head"><span class="process-step-num">01</span><span class="process-step-title">Design</span></div>
+        <div class="process-step-img">
+          <img src="assets/design-concept-sketch.jpg" alt="Design concept sketch">
+        </div>
+        <div class="process-step-body">
+          <svg viewBox="0 0 24 24"><path d="M4 20l3-1 12-12-2-2L5 17z"/><path d="M14 6l2 2"/></svg>
+          <p>Every piece begins with an idea. Our designers blend creativity with functionality to create timeless designs.</p>
+        </div>
+      </article>
+
+      <!-- 02 Material Selection -->
+      <article class="process-step">
+        <div class="process-step-head"><span class="process-step-num">02</span><span class="process-step-title">Material Selection</span></div>
+        <div class="process-step-img">
+          <img src="https://images.unsplash.com/photo-1540177656454-3f6c4547bed1?auto=format&fit=crop&w=700&q=80" alt="Marble and brass materials">
+        </div>
+        <div class="process-step-body">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+          <p>We carefully choose premium raw materials that meet our standards of durability, beauty and sustainability.</p>
+        </div>
+      </article>
+
+      <!-- 03 Handcrafting -->
+      <article class="process-step">
+        <div class="process-step-head"><span class="process-step-num">03</span><span class="process-step-title">Handcrafting</span></div>
+        <div class="process-step-img">
+          <img src="https://images.unsplash.com/photo-1680849112206-a0a04fdc168d?auto=format&fit=crop&w=700&q=80" alt="Handcrafting brass">
+        </div>
+        <div class="process-step-body">
+          <svg viewBox="0 0 24 24"><path d="M4 20l3-1 12-12-2-2L5 17z"/><path d="M14 6l2 2"/></svg>
+          <p>Skilled artisans shape, carve and assemble each piece by hand using traditional techniques.</p>
+        </div>
+      </article>
+
+      <!-- 04 Finishing -->
+      <article class="process-step">
+        <div class="process-step-head"><span class="process-step-num">04</span><span class="process-step-title">Finishing</span></div>
+        <div class="process-step-img">
+          <img src="https://images.unsplash.com/photo-1517196084897-498e0abd7c2d?auto=format&fit=crop&w=700&q=80" alt="Finishing brass hardware">
+        </div>
+        <div class="process-step-body">
+          <svg viewBox="0 0 24 24"><path d="M12 3l1.6 4.9L18 9l-4.4 1.1L12 15l-1.6-4.9L6 9l4.4-1.1z"/></svg>
+          <p>Each piece is finished with precision — polished, coated or textured to bring out its natural character.</p>
+        </div>
+      </article>
+
+      <!-- 05 Quality Inspection -->
+      <article class="process-step">
+        <div class="process-step-head"><span class="process-step-num">05</span><span class="process-step-title">Quality Inspection</span></div>
+        <div class="process-step-img">
+          <img src="https://images.unsplash.com/photo-1541617392762-9bd12653bd12?auto=format&fit=crop&w=700&q=80&sat=-100" alt="Quality inspection of hardware" style="filter:grayscale(0.55) brightness(1.05)">
+        </div>
+        <div class="process-step-body">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          <p>Every piece undergoes strict quality checks to ensure it meets our high standards of perfection and performance.</p>
+        </div>
+      </article>
+
+      <!-- 06 Packaging -->
+      <article class="process-step">
+        <div class="process-step-head"><span class="process-step-num">06</span><span class="process-step-title">Packaging</span></div>
+        <div class="process-step-img">
+          <img src="assets/hma-packaging.jpg" alt="HMA packaging">
+        </div>
+        <div class="process-step-body">
+          <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><line x1="12" y1="13" x2="12" y2="22"/></svg>
+          <p>Finally, we pack each creation with care using premium, eco-friendly packaging to ensure safe delivery.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</div>
+
+<section class="hma-journal">
+<style>
+  .hma-journal {
+    --hma-bg: #FAFAFA;
+    --hma-bg-alt: #EAEAEA;
+    --hma-ink: #000000;
+    --hma-ink-soft: #4A4A4A;
+    --hma-muted: #4A4A4A;
+    --hma-line: #EAEAEA;
+    --hma-card: #FFFFFF;
+    --hma-gold: #1F1F1F;
+    --hma-gold-dark: #000000;
+    --hma-tan: #F5F5F7;
+    --hma-tan-dark: #EAEAEA;
+    --hma-radius-sm: 10px;
+    --hma-radius-md: 34px;
+    --hma-radius-pill: 100px;
+
+    --hma-glass-blur: 14px;
+    --hma-glass-sat: 140%;
+    --hma-glass-bg: linear-gradient(155deg, rgba(255,255,255,0.62), rgba(255,255,255,0.26));
+    --hma-glass-border: 1px solid rgba(255,255,255,0.7);
+    --hma-glass-highlight: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+    --hma-shadow-soft: 0 20px 50px -18px rgba(0,0,0,0.14), 0 8px 20px -8px rgba(0,0,0,0.08);
+    --hma-shadow-lift: 0 28px 64px -20px rgba(0,0,0,0.18), 0 10px 26px -8px rgba(0,0,0,0.10);
+
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    all: initial;
+    display: block;
+    font-family: var(--font-body);
+    background: var(--hma-bg);
+    color: var(--hma-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .hma-journal *, .hma-journal *::before, .hma-journal *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hma-journal img { display: block; max-width: 100%; }
+  .hma-journal a { text-decoration: none; color: inherit; }
+  .hma-journal ul { list-style: none; }
+  .hma-journal svg { display: block; }
+
+  .hma-journal .hma-wrap {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ============ hero ============ */
+  .hma-journal .hma-hero { padding: 40px 0 60px; }
+  .hma-journal .hma-hero__top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: start;
+  }
+  .hma-journal .hma-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px;
+    border-radius: var(--hma-radius-pill);
+    border: var(--hma-glass-border);
+    background: var(--hma-glass-bg);
+    backdrop-filter: blur(var(--hma-glass-blur)) saturate(var(--hma-glass-sat));
+    -webkit-backdrop-filter: blur(var(--hma-glass-blur)) saturate(var(--hma-glass-sat));
+    box-shadow: var(--hma-shadow-soft), var(--hma-glass-highlight);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--hma-ink-soft);
+    margin-bottom: 22px;
+  }
+  .hma-journal .hma-eyebrow span.dash { width: 5px; height: 5px; border-radius: 50%; background: var(--hma-gold); display: inline-block; }
+  .hma-journal .hma-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    font-size: clamp(40px, 4.8vw, 60px);
+    line-height: 1.1;
+    color: var(--hma-ink);
+    max-width: 640px;
+  }
+  .hma-journal .hma-hero p {
+    margin-top: 22px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--hma-ink-soft);
+    max-width: 460px;
+    margin-bottom: 34px;
+  }
+  .hma-journal .hma-hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 30px;
+  }
+  .hma-journal a.hma-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(160deg, #2A2A2A, #000000);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    padding: 13px 26px;
+    border-radius: var(--hma-radius-pill);
+    box-shadow: var(--hma-shadow-soft);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .hma-journal .hma-btn-pill:hover { transform: translateY(-2px); box-shadow: var(--hma-shadow-lift); }
+  .hma-journal .hma-btn-pill svg { width: 14px; height: 14px; }
+
+  /* ============ article grid ============ */
+  .hma-journal .hma-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 22px;
+    margin-top: 50px;
+  }
+  .hma-journal .hma-card {
+    background: var(--hma-card);
+    border-radius: var(--hma-radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--hma-line);
+    box-shadow: var(--hma-shadow-soft);
+    transition: transform .35s ease, box-shadow .35s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .hma-journal .hma-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--hma-shadow-lift);
+  }
+  .hma-journal .hma-card__media {
+    position: relative;
+    aspect-ratio: 4 / 3.1;
+    overflow: hidden;
+    background: var(--hma-tan);
+  }
+  .hma-journal .hma-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.2,.7,.2,1);
+  }
+  .hma-journal .hma-card:hover .hma-card__media img { transform: scale(1.07); }
+  .hma-journal .hma-card__tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--hma-ink);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 6px 11px;
+    border-radius: var(--hma-radius-pill);
+  }
+  .hma-journal .hma-card__body {
+    padding: 20px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .hma-journal .hma-card__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--hma-ink);
+    margin-bottom: 10px;
+  }
+  .hma-journal .hma-card__excerpt {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--hma-muted);
+    flex: 1;
+    margin-bottom: 18px;
+  }
+  .hma-journal .hma-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--hma-line);
+  }
+  .hma-journal .hma-card__meta-text {
+    font-size: 12px;
+    color: var(--hma-muted);
+  }
+  .hma-journal .hma-card__arrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--hma-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hma-ink);
+    transition: background .2s ease, border-color .2s ease, transform .2s ease, color .2s ease;
+    flex-shrink: 0;
+  }
+  .hma-journal .hma-card__arrow svg { width: 13px; height: 13px; }
+  .hma-journal .hma-card:hover .hma-card__arrow {
+    background: var(--hma-gold-dark);
+    border-color: var(--hma-gold-dark);
+    color: #fff;
+    transform: rotate(45deg);
+  }
+
+  /* ============ footer features ============ */
+  .hma-journal .hma-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: var(--hma-radius-md);
+    overflow: hidden;
+    margin: 60px 0 70px;
+    background: var(--hma-glass-bg);
+    backdrop-filter: blur(var(--hma-glass-blur)) saturate(var(--hma-glass-sat));
+    -webkit-backdrop-filter: blur(var(--hma-glass-blur)) saturate(var(--hma-glass-sat));
+    border: var(--hma-glass-border);
+    box-shadow: var(--hma-shadow-soft), var(--hma-glass-highlight);
+  }
+  .hma-journal .hma-feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 26px;
+    border-right: 1px solid rgba(0,0,0,0.06);
+  }
+  .hma-journal .hma-feature:last-child { border-right: none; }
+  .hma-journal .hma-feature__icon {
+    width: 26px;
+    height: 26px;
+    color: var(--hma-ink);
+    flex-shrink: 0;
+  }
+  .hma-journal .hma-feature__icon svg { width: 26px; height: 26px; }
+  .hma-journal .hma-feature h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--hma-ink);
+    margin-bottom: 4px;
+  }
+  .hma-journal .hma-feature p {
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: var(--hma-muted);
+  }
+
+  /* ============ responsive ============ */
+  @media (max-width: 1200px) {
+    .hma-journal .hma-grid { grid-template-columns: repeat(3, 1fr); }
+    .hma-journal .hma-hero__top { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 900px) {
+    .hma-journal .hma-wrap { padding: 0 20px; }
+    .hma-journal .hma-hero h1 { font-size: 34px; }
+    .hma-journal .hma-grid { grid-template-columns: repeat(2, 1fr); }
+    .hma-journal .hma-features { grid-template-columns: repeat(2, 1fr); }
+    .hma-journal .hma-feature { border-bottom: 1px solid rgba(0,0,0,0.06); border-right: none; }
+  }
+  @media (max-width: 640px) {
+    .hma-journal .hma-features { grid-template-columns: 1fr; }
+    .hma-journal .hma-feature { border-right: none; }
+  }
+  @media (max-width: 560px) {
+    .hma-journal .hma-wrap { padding: 0 18px; }
+    .hma-journal .hma-hero { padding: 28px 0 36px; }
+    .hma-journal .hma-hero h1 { font-size: 30px; }
+    .hma-journal .hma-hero__actions { flex-wrap: wrap; gap: 16px; }
+    .hma-journal .hma-grid { grid-template-columns: 1fr; margin-top: 34px; }
+  }
+</style>
+
+  <div class="hma-wrap">
+    <section class="hma-hero">
+      <div class="hma-hero__top">
+        <div>
+          <p class="hma-eyebrow"><span class="dash"></span> Journal &amp; Insights</p>
+          <h1>Ideas. Inspiration.<br>Crafted to Inform.</h1>
+          <p>Explore stories, expert advice, and insights from the world of craftsmanship, design, and timeless living.</p>
+          <div class="hma-hero__actions">
+            <a href="#hmaArticles" class="hma-btn-pill">
+              View All Articles
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hma-grid" id="hmaArticles">
+
+        <a href="#" class="hma-card" data-category="craftsmanship">
+          <div class="hma-card__media">
+            <span class="hma-card__tag">Craftsmanship</span>
+            <img src="https://images.unsplash.com/photo-1779031242515-205111711b23?fm=jpg&amp;q=75&amp;w=900&amp;auto=format&amp;fit=crop" alt="Artisan hand-finishing a brass piece in the workshop" loading="lazy">
+          </div>
+          <div class="hma-card__body">
+            <h3 class="hma-card__title">The Art of Handmade Excellence</h3>
+            <p class="hma-card__excerpt">Inside the meticulous process behind our timeless pieces.</p>
+            <div class="hma-card__meta">
+              <span class="hma-card__meta-text">May 15, 2024 &nbsp;•&nbsp; 5 min read</span>
+              <span class="hma-card__arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="hma-card" data-category="interior">
+          <div class="hma-card__media">
+            <span class="hma-card__tag">Interior Design</span>
+            <img src="https://images.unsplash.com/photo-1750639258774-9a714379a093?fm=jpg&amp;q=75&amp;w=900&amp;auto=format&amp;fit=crop" alt="Warm neutral living room styled with handcrafted accents" loading="lazy">
+          </div>
+          <div class="hma-card__body">
+            <h3 class="hma-card__title">Elevate Your Space with Timeless Accents</h3>
+            <p class="hma-card__excerpt">How the right details transform ordinary spaces into extraordinary experiences.</p>
+            <div class="hma-card__meta">
+              <span class="hma-card__meta-text">May 08, 2024 &nbsp;•&nbsp; 6 min read</span>
+              <span class="hma-card__arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="hma-card" data-category="materials">
+          <div class="hma-card__media">
+            <span class="hma-card__tag">Materials</span>
+            <img src="https://images.unsplash.com/photo-1595418312726-3beb2f4fe67e?fm=jpg&amp;q=75&amp;w=900&amp;auto=format&amp;fit=crop" alt="Brass hardware detail on marble surface" loading="lazy">
+          </div>
+          <div class="hma-card__body">
+            <h3 class="hma-card__title">Choosing the Finest Materials</h3>
+            <p class="hma-card__excerpt">A guide to premium metals, stones, and finishes we trust.</p>
+            <div class="hma-card__meta">
+              <span class="hma-card__meta-text">Apr 30, 2024 &nbsp;•&nbsp; 4 min read</span>
+              <span class="hma-card__arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="hma-card" data-category="styling">
+          <div class="hma-card__media">
+            <span class="hma-card__tag">Styling Tips</span>
+            <img src="https://images.unsplash.com/photo-1762903836586-7f1969f0f8fc?fm=jpg&amp;q=75&amp;w=900&amp;auto=format&amp;fit=crop" alt="Shelf styled with candlesticks, books, and decorative objects" loading="lazy">
+          </div>
+          <div class="hma-card__body">
+            <h3 class="hma-card__title">Styling with Metal: Tips from Our Design Team</h3>
+            <p class="hma-card__excerpt">Simple ways to incorporate metal accents for a balanced, luxurious look.</p>
+            <div class="hma-card__meta">
+              <span class="hma-card__meta-text">Apr 22, 2024 &nbsp;•&nbsp; 5 min read</span>
+              <span class="hma-card__arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="hma-card" data-category="care">
+          <div class="hma-card__media">
+            <span class="hma-card__tag">Product Care</span>
+            <img src="https://images.unsplash.com/photo-1595418312726-3beb2f4fe67e?fm=jpg&amp;q=75&amp;w=900&amp;auto=format&amp;fit=crop&amp;crop=left" alt="Close-up of a brass fitting being cared for" loading="lazy">
+          </div>
+          <div class="hma-card__body">
+            <h3 class="hma-card__title">Caring for Your Handcrafted Pieces</h3>
+            <p class="hma-card__excerpt">Best practices to maintain the beauty and longevity of your pieces.</p>
+            <div class="hma-card__meta">
+              <span class="hma-card__meta-text">Apr 15, 2024 &nbsp;•&nbsp; 3 min read</span>
+              <span class="hma-card__arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="hma-features">
+        <div class="hma-feature">
+          <span class="hma-feature__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h9l3 3v13H6V4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M15 4v3h3" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12h6M9 15.5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <div>
+            <h3>Expertly Curated Content</h3>
+            <p>Insights from industry experts and artisans.</p>
+          </div>
+        </div>
+        <div class="hma-feature">
+          <span class="hma-feature__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z" stroke="currentColor" stroke-width="1.5"/></svg></span>
+          <div>
+            <h3>Global Perspectives</h3>
+            <p>Trends, inspiration, and stories from around the world.</p>
+          </div>
+        </div>
+        <div class="hma-feature">
+          <span class="hma-feature__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.4 1 1.1 1 1.9v.2h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0012 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+          <div>
+            <h3>Timeless Knowledge</h3>
+            <p>Practical tips and ideas that stand the test of time.</p>
+          </div>
+        </div>
+        <div class="hma-feature">
+          <span class="hma-feature__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6-4.4-4.2 6-.8L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+          <div>
+            <h3>Designed for You</h3>
+            <p>Content to help you create beautiful, lasting spaces.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
   </div>
 </section>
 
